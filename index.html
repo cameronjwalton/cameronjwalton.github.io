@@ -51,6 +51,44 @@
             margin-bottom: 40px;
         }
 
+        /* Link buttons */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 48px;
+        }
+
+        .link-btn {
+            display: block;
+            padding: 14px 24px;
+            border: 1px solid #222;
+            border-radius: 8px;
+            color: #ccc;
+            text-decoration: none;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .link-btn:hover {
+            background: #181818;
+            color: #fff;
+        }
+
+        .link-primary {
+            background: #ffffff;
+            color: #0a0a0a;
+            border-color: #ffffff;
+            font-weight: 700;
+        }
+
+        .link-primary:hover {
+            background: #e0e0e0;
+            color: #0a0a0a;
+        }
+
         /* Sections */
         section {
             padding: 48px 0;
@@ -224,12 +262,20 @@
 
     <!-- Hero -->
     <div class="hero">
-        <h1>Restoring Baseline</h1>
-        <p class="tagline">9 repairs. Not goals. Repairs.</p>
-        <p class="author">by Cameron (@whamron)</p>
+        <h1>@whamron</h1>
+        <p class="tagline">Intentional living. Evolutionary psychology. Escaping the zoo.</p>
     </div>
 
-    <!-- Problem -->
+    <!-- Links -->
+    <div class="links">
+        <a href="https://payhip.com/b/Alpez" class="link-btn link-primary">📄 Free Guide — Restoring Baseline</a>
+        <a href="https://payhip.com/b/dj5g2" class="link-btn">📘 Full Guide — £5</a>
+        <a href="https://www.tiktok.com/@whamron" class="link-btn">TikTok</a>
+        <a href="https://www.youtube.com/@whamron" class="link-btn">YouTube</a>
+        <a href="https://www.instagram.com/whamron" class="link-btn">Instagram</a>
+    </div>
+
+    <!-- Divider into main content -->
     <section>
         <h2>You already know what you should be doing.</h2>
         <p>You know you should go to the gym. You know you should put your phone down. You know you should eat better. You know all of this.</p>
@@ -293,11 +339,6 @@
     <!-- About -->
     <div class="about">
         <p>24. Software engineer, Muay Thai fighter. I spent years wasted behind screens and figured my way out. 400+ videos, 1M+ views. Everything I make is built on one idea: start from nothing and only add back what actually helps.</p>
-        <div class="socials">
-            <a href="https://www.tiktok.com/@whamron">TikTok</a>
-            <a href="https://www.youtube.com/@whamron">YouTube</a>
-            <a href="https://www.instagram.com/whamron">Instagram</a>
-        </div>
     </div>
 
     <footer>
