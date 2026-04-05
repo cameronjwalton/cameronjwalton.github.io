@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restoring Baseline — by Cameron (@whamron)</title>
+    <title>Restoring Baseline · @whamron</title>
     <meta name="description" content="9 repairs. Not goals. Repairs. A guide to undoing the damage the modern world has done to you.">
     <style>
         * {
@@ -334,6 +334,33 @@
             margin: 0 auto;
         }
 
+        /* Socials */
+        .socials {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 48px;
+        }
+
+        .socials a {
+            color: #444;
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid #1e1e1e;
+        }
+
+        .socials a:hover {
+            color: #fff;
+            border-color: #333;
+            transform: translateY(-2px);
+        }
+
         /* Footer */
         footer {
             padding: 40px 0;
@@ -398,11 +425,21 @@
 
     <!-- Links -->
     <div class="links">
-        <a href="https://payhip.com/b/Alpez" class="link-btn link-primary">📄 Free Guide — Restoring Baseline</a>
-        <a href="https://payhip.com/b/dj5g2" class="link-btn">📘 Full Guide — £5</a>
-        <a href="https://www.tiktok.com/@whamron" class="link-btn">TikTok</a>
-        <a href="https://www.youtube.com/@whamron" class="link-btn">YouTube</a>
-        <a href="https://www.instagram.com/whamron" class="link-btn">Instagram</a>
+        <a href="https://payhip.com/b/Alpez" class="link-btn link-primary">Free Guide: Restoring Baseline</a>
+        <a href="https://payhip.com/b/dj5g2" class="link-btn">Full Guide · £5</a>
+    </div>
+
+    <!-- Socials -->
+    <div class="socials">
+        <a href="https://www.tiktok.com/@whamron" aria-label="TikTok">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78c.27 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.3 6.34 6.34 0 0 0 9.49 21.6a6.34 6.34 0 0 0 6.34-6.34V8.7a8.16 8.16 0 0 0 3.76.92V6.69Z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@whamron" aria-label="YouTube">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 0 0 .5 6.19 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.81ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/whamron" aria-label="Instagram">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.97.25 2.43.41.61.24 1.05.52 1.51.98.46.46.74.9.98 1.51.17.46.36 1.26.41 2.43.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.97-.41 2.43a4.07 4.07 0 0 1-.98 1.51c-.46.46-.9.74-1.51.98-.46.17-1.26.36-2.43.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.25-2.43-.41a4.07 4.07 0 0 1-1.51-.98 4.07 4.07 0 0 1-.98-1.51c-.17-.46-.36-1.26-.41-2.43C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.97.41-2.43.24-.61.52-1.05.98-1.51a4.07 4.07 0 0 1 1.51-.98c.46-.17 1.26-.36 2.43-.41C8.42 2.17 8.8 2.16 12 2.16ZM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.96 5.96 0 0 0-2.16 1.41A5.96 5.96 0 0 0 .57 4.2C.27 4.96.07 5.84.01 7.11.01 8.39 0 8.8 0 12.06s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.41 2.16a5.96 5.96 0 0 0 2.16 1.41c.76.3 1.64.5 2.91.56C8.39 24 8.8 24 12.06 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.96 5.96 0 0 0 2.16-1.41 5.96 5.96 0 0 0 1.41-2.16c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.96 5.96 0 0 0-1.41-2.16A5.96 5.96 0 0 0 19.91.63C19.15.33 18.27.13 17 .07 15.72.01 15.31 0 12.06 0H12Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88Z"/></svg>
+        </a>
     </div>
 
     <!-- Problem -->
@@ -422,7 +459,7 @@
         <h2>The framework.</h2>
         <p>200,000 years as hunter-gatherers. Small groups, constant movement, real danger, real community. Our instincts were perfectly calibrated for that world.</p>
         <p>Then we built the modern world. Abundance instead of scarcity. Safety instead of danger. Isolation instead of community. Stillness instead of movement.</p>
-        <p>The anxiety, the restlessness, the feeling that something is wrong — <span class="emphasis">that's not a personal failing. It's a biological mismatch.</span></p>
+        <p>The anxiety, the restlessness, the feeling that something is wrong. <span class="emphasis">That's not a personal failing. It's a biological mismatch.</span></p>
         <p>This guide starts from zero. Instead of trying to remove bad things from your current life, you start from nothing and add back only what genuinely helps. 9 repairs, in order of priority. Fix these and the rest takes care of itself.</p>
     </section>
 
@@ -430,28 +467,28 @@
     <section class="reveal">
         <h2>The 9 repairs.</h2>
         <ol class="steps">
-            <li><span class="num">01</span><span><span class="step-title">Self-Acceptance</span> — you can't build on a foundation of self-hatred</span></li>
-            <li><span class="num">02</span><span><span class="step-title">Content Addiction</span> — the most potent fake signals in the modern world</span></li>
-            <li><span class="num">03</span><span><span class="step-title">Screen Addiction</span> — your screen time IS your free time</span></li>
-            <li><span class="num">04</span><span><span class="step-title">Comfort Addiction</span> — more comfort never leads to more happiness</span></li>
-            <li><span class="num">05</span><span><span class="step-title">Exercise</span> — movement is not a bonus, it's the biological minimum</span></li>
-            <li><span class="num">06</span><span><span class="step-title">Diet</span> — your taste buds are being lied to</span></li>
-            <li><span class="num">07</span><span><span class="step-title">Fear</span> — the things you're most afraid of are the things you most need to do</span></li>
-            <li><span class="num">08</span><span><span class="step-title">Relationships</span> — loneliness is a clinical health risk</span></li>
-            <li><span class="num">09</span><span><span class="step-title">Goals</span> — this comes last because if you've done the first eight, you probably don't need a grand purpose anymore</span></li>
+            <li><span class="num">01</span><span><span class="step-title">Self-Acceptance</span> · you can't build on a foundation of self-hatred</span></li>
+            <li><span class="num">02</span><span><span class="step-title">Content Addiction</span> · the most potent fake signals in the modern world</span></li>
+            <li><span class="num">03</span><span><span class="step-title">Screen Addiction</span> · your screen time IS your free time</span></li>
+            <li><span class="num">04</span><span><span class="step-title">Comfort Addiction</span> · more comfort never leads to more happiness</span></li>
+            <li><span class="num">05</span><span><span class="step-title">Exercise</span> · movement is not a bonus, it's the biological minimum</span></li>
+            <li><span class="num">06</span><span><span class="step-title">Diet</span> · your taste buds are being lied to</span></li>
+            <li><span class="num">07</span><span><span class="step-title">Fear</span> · the things you're most afraid of are the things you most need to do</span></li>
+            <li><span class="num">08</span><span><span class="step-title">Relationships</span> · loneliness is a clinical health risk</span></li>
+            <li><span class="num">09</span><span><span class="step-title">Goals</span> · this comes last because if you've done the first eight, you probably don't need a grand purpose anymore</span></li>
         </ol>
-        <p>The order matters. You can't skip to exercise if you hate yourself. You can't set goals if you're addicted to your phone. Each step builds on the last — <span class="emphasis">the sequence is the thing nobody talks about.</span></p>
+        <p>The order matters. You can't skip to exercise if you hate yourself. You can't set goals if you're addicted to your phone. Each step builds on the last. <span class="emphasis">The sequence is the thing nobody talks about.</span></p>
     </section>
 
     <!-- What's in the guide -->
     <section class="reveal">
         <h2>What's in the guide.</h2>
         <ul class="includes">
-            <li>The baseline principle — start from zero and add back only what helps</li>
+            <li>The baseline principle: start from zero and add back only what helps</li>
             <li>Why willpower always fails, and the "decide once" system that replaces it</li>
             <li>The neuroscience of content addiction, screen addiction, and comfort addiction</li>
             <li>Exercise, nutrition, and supplement recommendations backed by research</li>
-            <li>The AMCC — the brain structure that physically grows when you do hard things</li>
+            <li>The AMCC: the brain structure that physically grows when you do hard things</li>
             <li>Why loneliness is equivalent to smoking 15 cigarettes a day</li>
             <li>Why goals come last, not first</li>
             <li>Every future update and revision, free, forever</li>
@@ -465,7 +502,7 @@
         <p>Free version is complete and actionable on its own.<br>Full version goes deeper into the science, philosophy, and practical detail.</p>
         <div class="btn-group">
             <a href="https://payhip.com/b/Alpez" class="btn btn-primary">Get the free version</a>
-            <a href="https://payhip.com/b/dj5g2" class="btn btn-secondary">Full guide — £5</a>
+            <a href="https://payhip.com/b/dj5g2" class="btn btn-secondary">Full guide · £5</a>
         </div>
     </div>
 
