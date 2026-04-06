@@ -731,27 +731,27 @@
 
     // Trigger counters when stats section is visible
     const statsEl = document.querySelector('.stats');
-    const statsObserver = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-            animateCounters();
-            statsObserver.unobserve(statsEl);
-        }
-    }, { threshold: 0.5 });
-    statsObserver.observe(statsEl);
+    if (statsEl) {
+        const statsObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                animateCounters();
+                statsObserver.unobserve(statsEl);
+            }
+        }, { threshold: 0.5 });
+        statsObserver.observe(statsEl);
+    }
 
     // Tabs
-    document.addEventListener('DOMContentLoaded', function() {
-        var btns = document.querySelectorAll('.tab-btn');
-        var panels = document.querySelectorAll('.tab-panel');
-        for (var i = 0; i < btns.length; i++) {
-            btns[i].onclick = function() {
-                for (var j = 0; j < btns.length; j++) btns[j].classList.remove('active');
-                for (var j = 0; j < panels.length; j++) panels[j].classList.remove('active');
-                this.classList.add('active');
-                document.getElementById('tab-' + this.getAttribute('data-tab')).classList.add('active');
-            };
-        }
-    });
+    var btns = document.querySelectorAll('.tab-btn');
+    var panels = document.querySelectorAll('.tab-panel');
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].onclick = function() {
+            for (var j = 0; j < btns.length; j++) btns[j].classList.remove('active');
+            for (var j = 0; j < panels.length; j++) panels[j].classList.remove('active');
+            this.classList.add('active');
+            document.getElementById('tab-' + this.getAttribute('data-tab')).classList.add('active');
+        };
+    }
 </script>
 
 </body>
