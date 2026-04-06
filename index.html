@@ -352,6 +352,40 @@
             color: #fff;
         }
 
+        /* Waitlist form */
+        .waitlist-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            max-width: 360px;
+            margin: 0 auto;
+        }
+
+        .waitlist-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #222;
+            border-radius: 8px;
+            background: #111;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .waitlist-input:focus {
+            border-color: #444;
+        }
+
+        .waitlist-input::placeholder {
+            color: #555;
+        }
+
+        .waitlist-btn {
+            width: 100%;
+        }
+
         /* About */
         .about {
             padding: 48px 0;
@@ -531,6 +565,19 @@
             <a href="https://payhip.com/b/dj5g2" class="btn btn-primary">Full guide</a>
             <a href="https://payhip.com/b/Alpez" class="btn btn-secondary">Free version</a>
         </div>
+    </div>
+
+    <!-- Waitlist -->
+    <div class="cta-section reveal" id="community">
+        <h2>Community coming soon.</h2>
+        <p>Structured course. Weekly live calls. Accountability. The 9 repairs as a guided programme with people going through it together. Drop your email and I'll let you know when it opens.</p>
+        <form action="https://formsubmit.co/cameronjwalton@gmail.com" method="POST" class="waitlist-form">
+            <input type="hidden" name="_subject" value="Restoring Baseline waitlist signup">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://whamron.com#thanks">
+            <input type="email" name="email" placeholder="Your email" required class="waitlist-input">
+            <button type="submit" class="btn btn-primary waitlist-btn">Join the waitlist</button>
+        </form>
     </div>
 
     <!-- About -->
