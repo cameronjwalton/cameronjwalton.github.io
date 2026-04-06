@@ -740,13 +740,17 @@
     statsObserver.observe(statsEl);
 
     // Tabs
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-            btn.classList.add('active');
-            document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
-        });
+    document.addEventListener('DOMContentLoaded', function() {
+        var btns = document.querySelectorAll('.tab-btn');
+        var panels = document.querySelectorAll('.tab-panel');
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function() {
+                for (var j = 0; j < btns.length; j++) btns[j].classList.remove('active');
+                for (var j = 0; j < panels.length; j++) panels[j].classList.remove('active');
+                this.classList.add('active');
+                document.getElementById('tab-' + this.getAttribute('data-tab')).classList.add('active');
+            };
+        }
     });
 </script>
 
