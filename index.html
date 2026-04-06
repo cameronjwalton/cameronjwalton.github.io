@@ -115,6 +115,61 @@
             letter-spacing: 1px;
         }
 
+        /* Waitlist inline */
+        .waitlist-top {
+            max-width: 360px;
+            margin: 0 auto 32px;
+            text-align: center;
+        }
+
+        .waitlist-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .waitlist-inline {
+            display: flex;
+            gap: 8px;
+        }
+
+        .waitlist-input-inline {
+            flex: 1;
+            padding: 12px 14px;
+            border: 1px solid #222;
+            border-radius: 8px;
+            background: #111;
+            color: #fff;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .waitlist-input-inline:focus {
+            border-color: #444;
+        }
+
+        .waitlist-input-inline::placeholder {
+            color: #555;
+        }
+
+        .waitlist-submit {
+            padding: 12px 20px;
+            background: #ffffff;
+            color: #0a0a0a;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s;
+            white-space: nowrap;
+        }
+
+        .waitlist-submit:hover {
+            background: #e0e0e0;
+        }
+
         /* Link buttons */
         .links {
             display: flex;
@@ -481,10 +536,21 @@
         <p class="tagline">Intentional living. Evolutionary psychology. Escaping captivity.</p>
     </div>
 
+    <!-- Waitlist inline -->
+    <div class="waitlist-top">
+        <p class="waitlist-label">Community launching soon. Course, weekly calls, accountability.</p>
+        <form action="https://formsubmit.co/12ac8e919f8928e91d045d9204f0778c" method="POST" class="waitlist-inline">
+            <input type="hidden" name="_subject" value="Restoring Baseline waitlist signup">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://whamron.com">
+            <input type="email" name="email" placeholder="Your email" required class="waitlist-input-inline">
+            <button type="submit" class="waitlist-submit">Join waitlist</button>
+        </form>
+    </div>
+
     <!-- Links -->
     <div class="links">
-        <a href="#community" class="link-btn link-primary">Join the Community Waitlist</a>
-        <a href="https://payhip.com/b/dj5g2" class="link-btn">Full Guide</a>
+        <a href="https://payhip.com/b/dj5g2" class="link-btn link-primary">Full Guide</a>
         <a href="https://payhip.com/b/Alpez" class="link-btn">Free Version</a>
     </div>
 
@@ -566,19 +632,6 @@
             <a href="https://payhip.com/b/dj5g2" class="btn btn-primary">Full guide</a>
             <a href="https://payhip.com/b/Alpez" class="btn btn-secondary">Free version</a>
         </div>
-    </div>
-
-    <!-- Waitlist -->
-    <div class="cta-section reveal" id="community">
-        <h2>Community coming soon.</h2>
-        <p>Structured course. Weekly live calls. Accountability. The 9 repairs as a guided programme with people going through it together. Drop your email and I'll let you know when it opens.</p>
-        <form action="https://formsubmit.co/12ac8e919f8928e91d045d9204f0778c" method="POST" class="waitlist-form">
-            <input type="hidden" name="_subject" value="Restoring Baseline waitlist signup">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://whamron.com#thanks">
-            <input type="email" name="email" placeholder="Your email" required class="waitlist-input">
-            <button type="submit" class="btn btn-primary waitlist-btn">Join the waitlist</button>
-        </form>
     </div>
 
     <!-- About -->
