@@ -115,54 +115,71 @@
             letter-spacing: 1px;
         }
 
-        /* Guide section */
-        .guide-section {
-            text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid #141414;
-            max-width: 360px;
+        /* Tabs */
+        .tabs-container {
+            max-width: 400px;
             margin: 0 auto;
+            border-top: 1px solid #141414;
+            padding-top: 32px;
         }
 
-        .guide-title {
+        .tab-buttons {
+            display: flex;
+            gap: 0;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #222;
+        }
+
+        .tab-btn {
+            flex: 1;
+            background: none;
+            border: none;
+            color: #555;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 10px 0;
+            cursor: pointer;
+            transition: color 0.3s, border-color 0.3s;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+        }
+
+        .tab-btn:hover {
+            color: #aaa;
+        }
+
+        .tab-btn.active {
+            color: #fff;
+            border-bottom-color: #fff;
+        }
+
+        .tab-panel {
+            display: none;
+            text-align: center;
+            padding-bottom: 32px;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        .tab-title {
             font-size: 1.3rem;
             font-weight: 700;
             color: #ffffff;
             margin-bottom: 8px;
         }
 
-        .guide-desc {
+        .tab-desc {
             font-size: 0.9rem;
             color: #888;
             margin-bottom: 20px;
         }
 
-        .guide-options {
+        .tab-options {
             display: flex;
             flex-direction: column;
             gap: 10px;
-        }
-
-        /* Community section */
-        .community-section {
-            text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid #141414;
-            max-width: 360px;
-            margin: 0 auto;
-        }
-
-        .community-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 8px;
-        }
-
-        .community-desc {
-            font-size: 0.9rem;
-            color: #888;
-            margin-bottom: 20px;
         }
 
         /* Links label */
@@ -564,31 +581,37 @@
         </a>
     </div>
 
-    <!-- Community -->
-    <div class="community-section">
-        <h2 class="community-title">Join the community</h2>
-        <p class="community-desc">Discussion, weekly live calls, and accountability from people actually doing the work. Free for the first 50 members, then £29/month.</p>
-        <div class="guide-options">
-            <a href="https://www.skool.com/restoring-baseline-4494" class="link-btn link-primary">Join for free</a>
+    <!-- Tabs -->
+    <div class="tabs-container">
+        <div class="tab-buttons">
+            <button class="tab-btn active" data-tab="community">Community</button>
+            <button class="tab-btn" data-tab="coaching">Coaching</button>
+            <button class="tab-btn" data-tab="guide">Guide</button>
         </div>
-    </div>
 
-    <!-- Coaching -->
-    <div class="guide-section">
-        <h2 class="guide-title">1:1 Coaching</h2>
-        <p class="guide-desc">8 weeks of personalised coaching built around the 9 repairs. Weekly calls, async support between sessions, full accountability.</p>
-        <div class="guide-options">
-            <a href="https://calendly.com/cameronjwalton/30min" class="link-btn link-primary">Book a free screening call</a>
+        <div class="tab-panel active" id="tab-community">
+            <h2 class="tab-title">Join the community</h2>
+            <p class="tab-desc">Discussion, weekly live calls, and accountability from people actually doing the work. Free for the first 50 members, then £29/month.</p>
+            <div class="tab-options">
+                <a href="https://www.skool.com/restoring-baseline-4494" class="link-btn link-primary">Join for free</a>
+            </div>
         </div>
-    </div>
 
-    <!-- Guide -->
-    <div class="guide-section">
-        <h2 class="guide-title">Restoring Baseline</h2>
-        <p class="guide-desc">9 repairs to undo the damage the modern world has done to you. Not goals. Repairs.</p>
-        <div class="guide-options">
-            <a href="https://payhip.com/b/dj5g2" class="link-btn link-primary">Full Guide</a>
-            <a href="https://payhip.com/b/Alpez" class="link-btn">Free Version</a>
+        <div class="tab-panel" id="tab-coaching">
+            <h2 class="tab-title">1:1 Coaching</h2>
+            <p class="tab-desc">8 weeks of personalised coaching built around the 9 repairs. Weekly calls, async support between sessions, full accountability.</p>
+            <div class="tab-options">
+                <a href="https://calendly.com/cameronjwalton/30min" class="link-btn link-primary">Book a free screening call</a>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-guide">
+            <h2 class="tab-title">Restoring Baseline</h2>
+            <p class="tab-desc">9 repairs to undo the damage the modern world has done to you. Not goals. Repairs.</p>
+            <div class="tab-options">
+                <a href="https://payhip.com/b/dj5g2" class="link-btn link-primary">Full Guide</a>
+                <a href="https://payhip.com/b/Alpez" class="link-btn">Free Version</a>
+            </div>
         </div>
     </div>
 
@@ -715,6 +738,16 @@
         }
     }, { threshold: 0.5 });
     statsObserver.observe(statsEl);
+
+    // Tabs
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        });
+    });
 </script>
 
 </body>
