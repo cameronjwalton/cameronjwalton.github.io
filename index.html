@@ -188,6 +188,48 @@
             gap: 10px;
         }
 
+        .newsletter-form {
+            display: flex;
+            gap: 8px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 14px;
+            border: 1px solid #222;
+            border-radius: 8px;
+            background: #111;
+            color: #fff;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .newsletter-input:focus {
+            border-color: #444;
+        }
+
+        .newsletter-input::placeholder {
+            color: #555;
+        }
+
+        .newsletter-btn {
+            padding: 12px 20px;
+            background: #fff;
+            color: #0a0a0a;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s;
+            white-space: nowrap;
+        }
+
+        .newsletter-btn:hover {
+            background: #e0e0e0;
+        }
+
         /* Links label */
         .links-label {
             font-size: 0.9rem;
@@ -599,6 +641,7 @@
             <button class="tab-btn active" data-tab="community">Community</button>
             <button class="tab-btn" data-tab="coaching">Coaching</button>
             <button class="tab-btn" data-tab="guide">Guide</button>
+            <button class="tab-btn" data-tab="newsletter">Newsletter</button>
         </div>
 
         <div class="tab-panel active" id="tab-community">
@@ -624,6 +667,15 @@
                 <a href="https://payhip.com/b/dj5g2" class="link-btn link-primary">Full Guide</a>
                 <a href="https://payhip.com/b/Alpez" class="link-btn">Free Version</a>
             </div>
+        </div>
+
+        <div class="tab-panel" id="tab-newsletter">
+            <h2 class="tab-title">Newsletter</h2>
+            <p class="tab-desc">Longer essays on the ideas behind the videos. Delivered to your inbox. Free.</p>
+            <form class="newsletter-form" onsubmit="window.open('https://whamron.substack.com/subscribe?email=' + encodeURIComponent(this.email.value), '_blank'); return false;">
+                <input type="email" name="email" placeholder="Your email" required class="newsletter-input">
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
         </div>
     </div>
 
