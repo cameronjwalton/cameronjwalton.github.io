@@ -298,7 +298,23 @@
 
 
         /* ---- FOOTER ---- */
-        footer { padding: 48px 0; text-align: center; color: #222; font-size: 0.7rem; }
+        footer { padding: 56px 0 40px; text-align: center; }
+        .footer-content { max-width: 440px; margin: 0 auto; }
+        .footer-note { margin-top: 20px; color: #222; font-size: 0.7rem; }
+
+        .email-form { display: flex; gap: 8px; }
+        .email-input {
+            flex: 1; padding: 13px 16px; border: 1px solid #222; border-radius: 10px;
+            background: var(--bg-alt); color: var(--white); font-size: 0.9rem; outline: none;
+            font-family: inherit; cursor: pointer;
+        }
+        .email-input::placeholder { color: var(--text-muted); }
+        .email-btn {
+            padding: 13px 22px; background: var(--white); color: var(--bg); border: none;
+            border-radius: 10px; font-size: 0.9rem; font-weight: 700; cursor: pointer;
+            font-family: inherit; transition: all 0.3s; white-space: nowrap;
+        }
+        .email-btn:hover { box-shadow: 0 0 20px rgba(212,168,83,0.15); }
 
         /* ---- POPUP ---- */
         .popup-overlay {
@@ -364,6 +380,7 @@
             .dm-track img { height: 70px; }
             .dm-carousel::before, .dm-carousel::after { width: 30px; }
 
+            .email-form { flex-direction: column; }
             .popup { padding: 32px 24px; }
         }
     </style>
@@ -373,21 +390,14 @@
 <!-- ==================== BANNER ==================== -->
 <div class="banner">Restoring Baseline podcast is out now! Listen on <a href="https://www.youtube.com/@whamron_yt" class="banner-link">YouTube</a> or <a href="https://open.spotify.com/show/16E16W0ke5vGOVHZRQfRS4" class="banner-link">Spotify</a></div>
 
-<!-- ==================== VIDEO HERO ==================== -->
-<!-- Replace the empty div below with your video:
-     Self-hosted: <video src="/intro.mp4" autoplay muted loop playsinline></video>
-     YouTube: <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&controls=0&playlist=VIDEO_ID" allow="autoplay"></iframe>
-     TikTok embed: paste embed code inside .video-wrap -->
-<div class="video-hero">
-    <div class="video-wrap"></div>
-</div>
+<!-- VIDEO HERO: Add back when video is ready. See Redesign Plan.md for embed instructions. -->
 
 <!-- ==================== HERO ==================== -->
 <div class="hero">
     <div class="container">
         <p class="hero-brand">Restoring Baseline</p>
-        <h1>I've been where you are.</h1>
-        <p class="subtitle">Real talk and emotional work for people who know something is off. From someone who's been through it.</p>
+        <h1>You already know what's wrong.<br>You just haven't felt it yet.</h1>
+        <p class="subtitle">For young people who've already diagnosed the problem. You know what to change, maybe even why. I help you accept yourself and build the life you want from a place of enjoyment, the way humans did for 99% of history.</p>
         <div class="hero-ctas">
             <a href="/coaching" class="btn btn-primary">Talk to me</a>
             <a href="https://www.skool.com/restoring-baseline-4494" class="btn btn-secondary">Join the community — free</a>
@@ -412,10 +422,29 @@
     </div>
 </div>
 
+<!-- ==================== ABOUT ==================== -->
+<div class="about reveal">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-photo-slot" id="photoRotator">
+                <img src="/img/graduation.jpg" alt="Cameron — MEng graduation" class="active">
+                <img src="/img/muay-thai.jpg" alt="Cameron — Muay Thai">
+                <img src="/img/physique.jpg" alt="Cameron — training">
+            </div>
+            <div class="about-text">
+                <p><span class="emphasis">I'm Cameron. 24. Software engineer. Muay Thai fighter.</span></p>
+                <p>I sent 350 job applications after my Masters. 8 hours of screen time a day. Vaping constantly. Looked fine from the outside, felt nothing on the inside.</p>
+                <p>I didn't fix it with a morning routine. I fixed it by learning how to feel things I'd been running from my whole life.</p>
+                <p>431 videos. 1.4 million views. Now I help people one-on-one.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- ==================== TIERS ==================== -->
 <div class="tiers reveal">
     <div class="container">
-        <h2 class="section-heading" style="text-align:center;">Ways to work with me.</h2>
+        <h2 class="section-heading" style="text-align:center;">Get involved.</h2>
 
         <div class="tiers-grid">
 
@@ -431,7 +460,7 @@
                     <li>Essays on Substack</li>
                 </ul>
                 <div class="tier-bottom">
-                    <a href="https://payhip.com/b/Alpez" class="btn btn-secondary">Get the free guide</a>
+                    <a href="#" class="btn btn-secondary" onclick="document.getElementById('guidePopup').classList.add('active');return false;">Get the free guide</a>
                 </div>
             </div>
 
@@ -450,7 +479,7 @@
                     <div class="tier-price">
                         <span class="tier-price-old">£29/month</span>
                         <span class="tier-price-new">Free</span>
-
+                        <span class="tier-price-note">for founding members</span>
                     </div>
                     <a href="https://www.skool.com/restoring-baseline-4494" class="btn btn-primary">Get started</a>
                 </div>
@@ -479,27 +508,16 @@
     </div>
 </div>
 
-<!-- ==================== ABOUT ==================== -->
-<div class="about reveal">
-    <div class="container">
-        <div class="about-grid">
-            <div class="about-photo-slot" id="photoRotator">
-                <img src="/img/graduation.jpg" alt="Cameron — MEng graduation" class="active">
-                <img src="/img/muay-thai.jpg" alt="Cameron — Muay Thai">
-                <img src="/img/physique.jpg" alt="Cameron — training">
-            </div>
-            <div class="about-text">
-                <p><span class="emphasis">I'm Cameron. 24. Software engineer. Muay Thai fighter.</span></p>
-                <p>I sent 350 job applications after my Masters. 8 hours of screen time a day. Vaping constantly. Looked fine from the outside, felt nothing on the inside.</p>
-                <p>I didn't fix it with a morning routine. I fixed it by learning how to feel things I'd been running from my whole life.</p>
-                <p>431 videos. 1.4 million views. Now I help people one-on-one.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- ==================== FOOTER ==================== -->
-<footer>&copy; 2026 Restoring Baseline</footer>
+<footer>
+    <div class="container footer-content">
+        <form class="email-form" onsubmit="document.getElementById('guidePopup').classList.add('active');return false;">
+            <input type="email" placeholder="Your email" class="email-input" disabled>
+            <button type="button" class="email-btn" onclick="document.getElementById('guidePopup').classList.add('active');">Get the free guide</button>
+        </form>
+        <p class="footer-note">&copy; 2026 Restoring Baseline</p>
+    </div>
+</footer>
 
 <!-- ==================== FREE GUIDE POPUP ==================== -->
 <div class="popup-overlay" id="guidePopup">
@@ -567,12 +585,11 @@
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             var email = form.querySelector('input').value;
-            // PLACEHOLDER: Replace with Beehiiv form submission or your email provider
-            // For now, opens Substack subscribe + Payhip free guide
+            // PLACEHOLDER: Replace with Beehiiv API call to capture email + deliver guide
+            // For now, subscribes to Substack which will be the delivery mechanism
             window.open('https://whamron.substack.com/subscribe?email=' + encodeURIComponent(email), '_blank');
-            window.open('https://payhip.com/b/Alpez', '_blank');
-            close();
-            form.querySelector('input').value = '';
+            form.innerHTML = '<p style="color:var(--white);font-size:0.95rem;">Check your inbox. Guide is on its way.</p>';
+            setTimeout(close, 3000);
         });
     })();
 </script>
