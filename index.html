@@ -585,11 +585,12 @@
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             var email = form.querySelector('input').value;
-            // PLACEHOLDER: Replace with Beehiiv API call to capture email + deliver guide
-            // For now, subscribes to Substack which will be the delivery mechanism
-            window.open('https://whamron.substack.com/subscribe?email=' + encodeURIComponent(email), '_blank');
-            form.innerHTML = '<p style="color:var(--white);font-size:0.95rem;">Check your inbox. Guide is on its way.</p>';
-            setTimeout(close, 3000);
+            // PLACEHOLDER: Replace with Beehiiv API call when set up
+            // For now, subscribes to Substack in background for email follow-up
+            var img = new Image();
+            img.src = 'https://whamron.substack.com/subscribe?email=' + encodeURIComponent(email);
+            // Take them straight to the guide
+            window.location.href = '/guide.pdf';
         });
     })();
 </script>
