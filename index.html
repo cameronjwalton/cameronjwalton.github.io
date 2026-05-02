@@ -16,7 +16,7 @@
             --text-secondary: #555555;
             --text-muted: #999999;
             --white: #1a1a1a;
-            --accent: #b8860b;
+            --accent: #FFD700;
             --border: #e0e0e0;
             --max-w: 720px;
         }
@@ -34,10 +34,10 @@
         /* ---- BANNER ---- */
         .banner {
             display: block; text-align: center; padding: 10px 24px;
-            background: var(--accent); color: #fff; font-size: 0.8rem; font-weight: 600;
+            background: var(--accent); color: #000; font-size: 0.8rem; font-weight: 600;
             text-decoration: none; transition: background 0.3s;
         }
-        .banner a.banner-link { color: #fff; text-decoration: underline; font-weight: 700; }
+        .banner a.banner-link { color: #000; text-decoration: underline; font-weight: 700; }
         .banner a.banner-link:hover { opacity: 0.8; }
 
         /* ---- NAV ---- */
@@ -170,8 +170,8 @@
             letter-spacing: 0.5px;
         }
 
-        .btn-primary { background: var(--accent); color: #fff; }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 24px rgba(184,134,11,0.25); }
+        .btn-primary { background: var(--accent); color: #000; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 24px rgba(255,215,0,0.35); }
 
         .btn-secondary { background: transparent; color: var(--text-secondary); border: 1px solid var(--border); }
         .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
@@ -240,7 +240,7 @@
             left: 50%;
             transform: translateX(-50%);
             background: var(--accent);
-            color: #fff;
+            color: #000;
             font-size: 0.6rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -348,11 +348,11 @@
         .email-input:focus { border-color: var(--accent); }
         .email-input::placeholder { color: var(--text-muted); }
         .email-btn {
-            padding: 13px 22px; background: var(--accent); color: #fff; border: none;
+            padding: 13px 22px; background: var(--accent); color: #000; border: none;
             border-radius: 10px; font-size: 0.9rem; font-weight: 700; cursor: pointer;
             font-family: inherit; transition: all 0.3s; white-space: nowrap;
         }
-        .email-btn:hover { box-shadow: 0 0 20px rgba(184,134,11,0.25); }
+        .email-btn:hover { box-shadow: 0 0 20px rgba(255,215,0,0.35); }
 
         /* ---- POPUP ---- */
         .popup-overlay {
@@ -388,11 +388,11 @@
         .popup-form input:focus { border-color: var(--accent); }
         .popup-form input::placeholder { color: var(--text-muted); }
         .popup-form button {
-            width: 100%; padding: 14px; background: var(--accent); color: #fff;
+            width: 100%; padding: 14px; background: var(--accent); color: #000;
             border: none; border-radius: 10px; font-size: 0.95rem; font-weight: 700;
             cursor: pointer; font-family: inherit; transition: all 0.3s;
         }
-        .popup-form button:hover { box-shadow: 0 0 20px rgba(184,134,11,0.25); }
+        .popup-form button:hover { box-shadow: 0 0 20px rgba(255,215,0,0.35); }
         .popup-note { margin-top: 12px; font-size: 0.7rem; color: var(--text-muted); }
 
         /* ---- REVEAL ---- */
