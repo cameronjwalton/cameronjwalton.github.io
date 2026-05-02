@@ -511,9 +511,9 @@
 <!-- ==================== FOOTER ==================== -->
 <footer>
     <div class="container footer-content">
-        <form class="email-form" onsubmit="document.getElementById('guidePopup').classList.add('active');return false;">
-            <input type="email" placeholder="Your email" class="email-input">
-            <button type="button" class="email-btn" onclick="document.getElementById('guidePopup').classList.add('active');">Sign up</button>
+        <form class="email-form" id="footerForm">
+            <input type="email" placeholder="Your email" required class="email-input">
+            <button type="submit" class="email-btn">Sign up</button>
         </form>
         <p class="footer-note">&copy; 2026 Restoring Baseline</p>
     </div>
@@ -551,6 +551,23 @@
             imgs[current].classList.add('active');
         }, 3000);
     })();
+
+    // Footer email signup
+    document.getElementById('footerForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var input = this.querySelector('input');
+        var btn = this.querySelector('button');
+        var email = input.value;
+        fetch('https://restoringbaseline.beehiiv.com/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: 'email=' + encodeURIComponent(email),
+            mode: 'no-cors'
+        });
+        input.style.display = 'none';
+        btn.style.display = 'none';
+        this.innerHTML = '<p style="color:var(--accent);font-size:0.9rem;font-weight:600;padding:13px 0;">You\'re in ✓</p>';
+    });
 
     // Guide popup — shows once per session after 20s or 50% scroll
     (function() {
