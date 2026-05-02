@@ -614,9 +614,9 @@
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             var email = form.querySelector('input').value;
-            subscribeBeehiiv(email, function() {
-                window.location.href = '/guide.pdf';
-            });
+            subscribeBeehiiv(email);
+            form.innerHTML = '<p style="color:var(--accent);font-size:0.95rem;font-weight:600;">Check your inbox for the guide ✓</p>';
+            setTimeout(close, 3000);
         });
     })();
 </script>
