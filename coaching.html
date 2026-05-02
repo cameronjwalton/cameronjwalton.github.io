@@ -3,121 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1:1 Coaching · @whamron</title>
-    <meta name="description" content="8 weeks of personalised coaching built around the 9 repairs. Apply for a free screening call.">
+    <title>1:1 Coaching · Restoring Baseline</title>
+    <meta name="description" content="8 weeks of structured emotional work. I help you understand why you can't, not tell you to just start. Apply for 1:1 coaching.">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0a;
+            --bg-alt: #111111;
+            --bg-card: #161616;
+            --text: #e8e8e8;
+            --text-secondary: #888888;
+            --text-muted: #555555;
+            --white: #ffffff;
+            --accent: #d4a853;
+            --border: #1e1e1e;
+            --max-w: 620px;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-            background: #0a0a0a;
-            color: #e0e0e0;
-            line-height: 1.7;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.75;
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 580px;
+            max-width: var(--max-w);
             margin: 0 auto;
-            padding: 60px 24px;
+            padding: 64px 24px;
         }
 
-        h1 {
+        /* ---- PITCH ---- */
+        .pitch { margin-bottom: 56px; }
+
+        .pitch h1 {
             font-size: 2rem;
             font-weight: 700;
-            color: #fff;
-            margin-bottom: 8px;
+            color: var(--white);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
         }
 
-        .subtitle {
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 40px;
+        .pitch p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.75;
         }
 
+        .pitch p strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* ---- SECTIONS ---- */
         h2 {
             font-size: 1.2rem;
             font-weight: 700;
-            color: #fff;
+            color: var(--white);
             margin-bottom: 16px;
-            margin-top: 40px;
         }
 
-        h2:first-of-type {
-            margin-top: 0;
-        }
-
-        p {
-            color: #999;
-            margin-bottom: 12px;
-            font-size: 0.95rem;
-        }
-
-        .details {
+        /* ---- CARD ---- */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px 24px;
             margin-bottom: 40px;
-            padding-bottom: 40px;
-            border-bottom: 1px solid #141414;
         }
 
-        .detail-list {
+        .card h2 { margin-bottom: 16px; }
+
+        .card ul {
             list-style: none;
             padding: 0;
         }
 
-        .detail-list li {
-            color: #ccc;
-            font-size: 0.95rem;
-            padding: 8px 0;
-            border-bottom: 1px solid #111;
-        }
-
-        .detail-list li:last-child {
-            border-bottom: none;
-        }
-
-        .price {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #fff;
-            margin: 20px 0 8px;
-        }
-
-        .price-note {
-            font-size: 0.85rem;
-            color: #555;
-            margin-bottom: 0;
-        }
-
-        /* Form */
-        .form-section {
-            margin-top: 0;
-        }
-
-        .form-intro {
-            color: #888;
+        .card ul li {
+            color: var(--text);
             font-size: 0.9rem;
-            margin-bottom: 24px;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
         }
+
+        .card ul li:last-child { border-bottom: none; }
+
+        /* ---- FIT SECTION ---- */
+        .fit { margin-bottom: 40px; }
+
+        .fit-group { margin-bottom: 28px; }
+
+        .fit-group h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .fit-group.not h3 {
+            color: var(--text-muted);
+        }
+
+        .fit-group ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .fit-group ul li {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 5px 0;
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .fit-group ul li::before {
+            position: absolute;
+            left: 0;
+            top: 5px;
+        }
+
+        .fit-group.yes ul li::before { content: '✓'; color: var(--accent); }
+        .fit-group.not ul li::before { content: '✕'; color: var(--text-muted); }
+
+        /* ---- PRICE ---- */
+        .price-block {
+            text-align: center;
+            padding: 32px 24px;
+            margin-bottom: 48px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+        }
+
+        .price-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .price-detail {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .price-weekly {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* ---- FORM ---- */
+        .form-section { margin-bottom: 40px; }
 
         label {
             display: block;
             font-size: 0.9rem;
             font-weight: 600;
-            color: #ccc;
+            color: var(--text);
             margin-bottom: 6px;
-            margin-top: 20px;
+            margin-top: 24px;
         }
 
-        label:first-of-type {
-            margin-top: 0;
-        }
+        label:first-of-type { margin-top: 0; }
 
         .label-hint {
             font-weight: 400;
-            color: #555;
+            color: var(--text-muted);
             font-size: 0.8rem;
             display: block;
             margin-top: 2px;
@@ -125,15 +180,14 @@
 
         input[type="text"],
         input[type="email"],
-        input[type="number"],
         textarea,
         select {
             width: 100%;
             padding: 12px 14px;
-            border: 1px solid #222;
-            border-radius: 8px;
-            background: #111;
-            color: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--bg-alt);
+            color: var(--white);
             font-size: 0.9rem;
             font-family: inherit;
             outline: none;
@@ -161,41 +215,69 @@
             width: 100%;
             padding: 14px 24px;
             margin-top: 32px;
-            background: #fff;
-            color: #0a0a0a;
+            background: var(--white);
+            color: var(--bg);
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
         }
 
         .submit-btn:hover {
-            background: #e0e0e0;
+            transform: translateY(-2px);
+            box-shadow: 0 0 24px rgba(212,168,83,0.15);
         }
 
+        .submit-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 12px;
+        }
+
+        /* ---- FAQ ---- */
+        .faq { margin-bottom: 40px; }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .faq-item:first-of-type { padding-top: 0; }
+        .faq-item:last-of-type { border-bottom: none; }
+
+        .faq-q {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .faq-a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ---- BACK LINK ---- */
         .back-link {
             display: block;
             text-align: center;
             margin-top: 32px;
-            color: #444;
+            color: var(--text-muted);
             font-size: 0.85rem;
             text-decoration: none;
+            transition: color 0.3s;
         }
 
-        .back-link:hover {
-            color: #888;
-        }
+        .back-link:hover { color: var(--text-secondary); }
 
+        /* ---- RESPONSIVE ---- */
         @media (max-width: 600px) {
-            .container {
-                padding: 40px 20px;
-            }
-
-            h1 {
-                font-size: 1.6rem;
-            }
+            .container { padding: 40px 20px; }
+            .pitch h1 { font-size: 1.6rem; }
         }
     </style>
 </head>
@@ -203,27 +285,56 @@
 
 <div class="container">
 
-    <h1>1:1 Coaching</h1>
-    <p class="subtitle">8 weeks. Personalised. Built around the 9 repairs.</p>
-
-    <div class="details">
-        <h2>What you get</h2>
-        <ul class="detail-list">
-            <li>Week 1: deep baseline audit + goal setting (60 min call)</li>
-            <li>Weeks 2–7: weekly 30-min check-in calls</li>
-            <li>Week 8: full review + next steps (60 min call)</li>
-            <li>Async voice note and message support between all calls</li>
-            <li>Personalised action items after every session</li>
-            <li>Access to the Skool community (free)</li>
-        </ul>
-
-        <div class="price">£500</div>
-        <p class="price-note">Full 8-week programme. £62.50/week.</p>
+    <!-- PITCH -->
+    <div class="pitch">
+        <h1>1:1 Coaching</h1>
+        <p><strong>This isn't motivational coaching.</strong> I don't give you a morning routine and tell you to just start. I help you understand why you can't. What you're avoiding, what you're carrying, and why nothing has stuck so far. That's where the work actually is.</p>
     </div>
 
+    <!-- WHAT YOU GET -->
+    <div class="card">
+        <h2>What you get</h2>
+        <ul>
+            <li>Week 1: deep audit — 60 min call</li>
+            <li>Weeks 2–7: weekly check-ins — 30 min + async support</li>
+            <li>Week 8: full review — 60 min call</li>
+            <li>Voice note support between calls</li>
+            <li>1:1 messaging with me</li>
+        </ul>
+    </div>
+
+    <!-- WHO THIS IS FOR -->
+    <div class="fit">
+        <h2>Who this is for</h2>
+
+        <div class="fit-group yes">
+            <h3>For you if</h3>
+            <ul>
+                <li>You know what to do but can't make yourself do it</li>
+                <li>You've never learned how to deal with what you're feeling</li>
+                <li>You want someone who's been there, not someone with a clipboard</li>
+            </ul>
+        </div>
+
+        <div class="fit-group not">
+            <h3>Not for you if</h3>
+            <ul>
+                <li>You want business or career coaching</li>
+                <li>You're looking for motivation, not understanding</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PRICE -->
+    <div class="price-block">
+        <div class="price-amount">£500</div>
+        <div class="price-detail">8 weeks</div>
+        <div class="price-weekly">£62.50/week</div>
+    </div>
+
+    <!-- FORM -->
     <div class="form-section">
         <h2>Apply</h2>
-        <p class="form-intro">Fill this out and I'll review it before we speak. Book a free screening call after submitting.</p>
 
         <form action="https://formsubmit.co/enquiries@whamron.com" method="POST">
             <input type="hidden" name="_subject" value="Coaching application">
@@ -233,64 +344,61 @@
             <label>Name and age</label>
             <input type="text" name="name_and_age" required>
 
-            <label>What do you do for work?</label>
-            <input type="text" name="work" required>
-
             <label>What are you struggling with right now?
-                <span class="label-hint">Be specific. Not "everything."</span>
+                <span class="label-hint">Be specific.</span>
             </label>
             <textarea name="struggling_with" required></textarea>
 
-            <label>What does a typical day look like for you?
-                <span class="label-hint">Wake up time, before work, after work, when you go to bed. Be honest.</span>
-            </label>
-            <textarea name="typical_day" required></textarea>
-
-            <label>What's your current daily screen time average?</label>
-            <input type="text" name="screen_time" required>
-
-            <label>Do you exercise? If so, what and how often?</label>
-            <input type="text" name="exercise" required>
-
-            <label>What have you already tried to change things?
-                <span class="label-hint">Books, courses, habits, apps, therapy, anything.</span>
-            </label>
+            <label>What have you already tried?</label>
             <textarea name="already_tried" required></textarea>
 
-            <label>Why hasn't it worked?</label>
-            <textarea name="why_not_worked" required></textarea>
-
-            <label>Why now? What's changed that made you reach out today?</label>
-            <textarea name="why_now" required></textarea>
-
-            <label>What would success look like after 8 weeks?
-                <span class="label-hint">Not "be better." Something specific and measurable.</span>
+            <label>What would it look like if things were better in 8 weeks?
+                <span class="label-hint">Be specific.</span>
             </label>
             <textarea name="success" required></textarea>
 
-            <label>Are you prepared to commit to weekly calls and daily action items for 8 weeks?</label>
+            <label>Email</label>
+            <input type="email" name="email" required>
+
+            <label>Ready to commit to £500 and 8 weeks?</label>
             <select name="commitment" required>
                 <option value="" disabled selected>Select</option>
                 <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Not yet">Not yet</option>
             </select>
 
-            <label>Is the £500 investment something you can commit to right now?</label>
-            <select name="payment_ready" required>
-                <option value="" disabled selected>Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-                <option value="Need to think about it">Need to think about it</option>
-            </select>
-
-            <label>Anything else you want me to know before we speak?</label>
-            <textarea name="anything_else"></textarea>
-
-            <button type="submit" class="submit-btn">Submit and book screening call</button>
+            <button type="submit" class="submit-btn">Submit</button>
+            <p class="submit-note">No sales pitch. Just a conversation to see if it's right.</p>
         </form>
     </div>
 
-    <a href="/" class="back-link">← whamron.com</a>
+    <!-- FAQ -->
+    <div class="faq">
+        <h2>FAQ</h2>
+
+        <div class="faq-item">
+            <p class="faq-q">What if I can't afford £500?</p>
+            <p class="faq-a">£62.50 a week. Less than a gym membership and a couple of takeaways. If it's not possible right now, join the free community and do the modules yourself.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q">What makes this different from therapy?</p>
+            <p class="faq-a">I'm not a therapist. This is structured, practical, and direct. Weekly calls, action items, someone checking in mid-week. Closer to a training partner for your life than sitting on a couch.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q">What if I don't follow through?</p>
+            <p class="faq-a">That's what the weekly calls and mid-week check-ins are for. I'll notice before you do. But if you're not willing to try, don't apply.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-q">Is this just self-improvement stuff?</p>
+            <p class="faq-a">No. Most self-improvement comes from "you're broken, fix yourself." This is about understanding yourself. The changes come as a side effect.</p>
+        </div>
+    </div>
+
+    <!-- BACK -->
+    <a href="/" class="back-link">← restoringbaseline</a>
 
 </div>
 

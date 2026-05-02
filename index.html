@@ -40,6 +40,43 @@
         .banner a.banner-link { color: #000; text-decoration: underline; font-weight: 700; }
         .banner a.banner-link:hover { opacity: 0.7; }
 
+        /* ---- NAV ---- */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+        .nav-links a {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--white); }
+
         /* ---- VIDEO HERO ---- */
         .video-hero {
             padding: 48px 24px 0;
@@ -380,6 +417,10 @@
             .dm-track img { height: 70px; }
             .dm-carousel::before, .dm-carousel::after { width: 30px; }
 
+            .nav-brand { font-size: 0.7rem; letter-spacing: 2px; }
+            .nav-links { gap: 16px; }
+            .nav-links a { font-size: 0.7rem; }
+
             .email-form { flex-direction: column; }
             .popup { padding: 32px 24px; }
         }
@@ -389,6 +430,18 @@
 
 <!-- ==================== BANNER ==================== -->
 <div class="banner">Restoring Baseline podcast is out now! Listen on <a href="https://www.youtube.com/@whamron_yt" class="banner-link">YouTube</a> or <a href="https://open.spotify.com/show/16E16W0ke5vGOVHZRQfRS4" class="banner-link">Spotify</a></div>
+
+<!-- ==================== NAV ==================== -->
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="/" class="nav-brand">Restoring Baseline</a>
+        <div class="nav-links">
+            <a href="https://www.skool.com/restoring-baseline-4494">Community</a>
+            <a href="/coaching">Coaching</a>
+            <a href="https://open.spotify.com/show/16E16W0ke5vGOVHZRQfRS4">Podcast</a>
+        </div>
+    </div>
+</nav>
 
 <!-- VIDEO HERO: Add back when video is ready. See Redesign Plan.md for embed instructions. -->
 
