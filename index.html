@@ -553,9 +553,14 @@
         }, 3000);
     })();
 
-    // Subscribe via Beehiiv — opens their page with email pre-filled
+    // Subscribe via Beehiiv API (proxied through worker)
     function subscribeBeehiiv(email) {
-        window.open('https://restoringbaseline.beehiiv.com/subscribe?email=' + encodeURIComponent(email), '_blank');
+        fetch('https://api.beehiiv.com/v2/publications/pub_d35a33ad-b366-4f04-a1a0-9544600f6146/subscriptions', {
+            method: 'POST',
+            headers: { 'Authorization': 'Bearer qjSIDIjl1tjuCdE9TRvC5PR2ZTMFZu0qg7h0nOUSdXgwMk1IEuquPuzbSxQrTlAT', 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email, send_welcome_email: true }),
+            mode: 'no-cors'
+        });
     }
 
     // Footer email signup
