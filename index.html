@@ -157,27 +157,8 @@
 
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* ---- DIVIDER ---- */
-        .divider { width: 48px; height: 1px; background: #222; margin: 0 auto; }
-
-        /* ---- TEXT SECTIONS ---- */
-        .text-section { padding: 72px 0; }
-        .text-section p { margin-bottom: 16px; color: var(--text-secondary); font-size: 1.05rem; }
         .emphasis { color: var(--white); font-weight: 600; }
 
-        .pull-quote {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--white);
-            text-align: center;
-            padding: 56px 24px;
-            line-height: 1.35;
-            letter-spacing: -0.5px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* ---- SECTION HEADINGS ---- */
         .section-heading {
             font-size: 1.8rem;
             font-weight: 700;
@@ -186,46 +167,89 @@
             letter-spacing: -0.5px;
         }
 
-        /* ---- THREE THREADS ---- */
-        .threads { display: grid; gap: 16px; margin: 28px 0; }
+        /* ---- TIERS ---- */
+        .tiers { padding: 80px 0; }
 
-        .thread {
+        .tier {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
+            border-radius: 14px;
+            padding: 32px 28px;
+            margin-bottom: 16px;
         }
 
-        .thread h3 { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
-        .thread p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; line-height: 1.65; }
+        .tier-top { border-color: var(--accent); }
 
-        /* ---- COACHING ---- */
-        .coaching { padding: 80px 0; background: var(--bg-alt); }
+        .tier-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
 
-        .coaching-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 28px 0; }
+        .tier h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .tier p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .coaching-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 24px; }
 
         .coaching-block {
-            background: var(--bg-card);
+            background: var(--bg);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px 16px;
+            border-radius: 10px;
+            padding: 16px 12px;
             text-align: center;
         }
 
-        .coaching-block h4 { font-size: 0.9rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
-        .coaching-block p { font-size: 0.8rem; color: var(--text-secondary); margin: 0; line-height: 1.5; }
+        .coaching-block h4 { font-size: 0.85rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+        .coaching-block p { font-size: 0.75rem; color: var(--text-secondary); margin: 0; line-height: 1.5; }
 
-        .price { font-size: 1.6rem; font-weight: 700; color: var(--white); margin: 24px 0 4px; }
-        .price-note { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 28px; }
+        .cta-micro { font-size: 0.7rem; color: var(--text-muted); margin-top: 8px; text-align: center; }
 
-        .qualifier { margin: 24px 0 0; }
-        .qualifier h3 { font-size: 0.9rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
-        .qualifier ul { list-style: none; padding: 0; }
-        .qualifier li { padding: 4px 0 4px 20px; position: relative; color: var(--text-secondary); font-size: 0.9rem; }
-        .qualifier li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
-        .qualifier-not li::before { content: "×"; color: var(--text-muted); }
-        .cta-group { text-align: center; margin-top: 36px; }
-        .cta-micro { font-size: 0.75rem; color: var(--text-muted); margin-top: 10px; }
+        .tier-price { margin-bottom: 20px; }
+        .tier-price-old { font-size: 1rem; color: var(--text-muted); text-decoration: line-through; margin-right: 8px; }
+        .tier-price-new { font-size: 1.4rem; font-weight: 700; color: var(--white); margin-right: 6px; }
+        .tier-price-note { font-size: 0.8rem; color: var(--text-muted); }
+
+        .free-items { display: grid; gap: 8px; }
+
+        .free-item {
+            display: block;
+            padding: 14px 16px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            text-decoration: none;
+            transition: border-color 0.3s;
+        }
+
+        .free-item:hover { border-color: #333; }
+
+        .free-item-title {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .free-item-desc {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
 
         /* ---- ABOUT ---- */
         .about { padding: 72px 0; }
@@ -247,35 +271,7 @@
 
         .about-text p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 14px; }
 
-        /* ---- EMAIL SECTION ---- */
-        .email-section { padding: 72px 0; background: var(--bg-alt); text-align: center; }
 
-        .email-form { display: flex; gap: 8px; max-width: 400px; margin: 0 auto; }
-        .email-input {
-            flex: 1; padding: 13px 16px; border: 1px solid #222; border-radius: 10px;
-            background: var(--bg); color: var(--white); font-size: 0.9rem; outline: none;
-            transition: border-color 0.3s; font-family: inherit;
-        }
-        .email-input:focus { border-color: #444; }
-        .email-input::placeholder { color: var(--text-muted); }
-        .email-btn {
-            padding: 13px 22px; background: var(--white); color: var(--bg); border: none;
-            border-radius: 10px; font-size: 0.9rem; font-weight: 700; cursor: pointer;
-            transition: all 0.3s; white-space: nowrap; font-family: inherit;
-        }
-        .email-btn:hover { box-shadow: 0 0 20px rgba(212,168,83,0.15); }
-        .email-note { margin-top: 10px; color: var(--text-muted); font-size: 0.75rem; }
-
-        /* ---- CARDS ---- */
-        .cards-section { padding: 72px 0; }
-        .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-        .card {
-            background: var(--bg-card); border: 1px solid var(--border);
-            border-radius: 12px; padding: 24px;
-        }
-        .card h3 { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
-        .card p { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.6; }
-        .card .btn { width: 100%; display: block; padding: 12px; font-size: 0.85rem; }
 
         /* ---- FOOTER ---- */
         footer { padding: 48px 0; text-align: center; color: #222; font-size: 0.7rem; }
@@ -330,23 +326,18 @@
             .hero { padding: 48px 0 40px; }
             .hero h1 { font-size: 2.2rem; letter-spacing: -1px; }
             .hero .subtitle { font-size: 1rem; }
-            .hero-stats { gap: 24px; }
             .hero-ctas { flex-direction: column; align-items: center; }
             .hero-ctas .btn { width: 100%; max-width: 300px; }
 
-            .text-section, .about, .cards-section, .email-section { padding: 56px 0; }
-            .coaching { padding: 56px 0; }
+            .tiers, .about { padding: 56px 0; }
             .container { padding: 0 20px; }
 
             .coaching-grid { grid-template-columns: 1fr; }
-            .cards { grid-template-columns: 1fr; }
             .about-grid { grid-template-columns: 1fr; }
             .about-photo-slot { max-width: 180px; margin: 0 auto; }
 
             .dm-track img { height: 70px; }
             .dm-carousel::before, .dm-carousel::after { width: 30px; }
-            .pull-quote { font-size: 1.2rem; padding: 40px 20px; }
-            .email-form { flex-direction: column; }
 
             .popup { padding: 32px 24px; }
         }
@@ -396,80 +387,60 @@
     </div>
 </div>
 
-<div class="divider"></div>
-
-<!-- ==================== THE PROBLEM ==================== -->
-<div class="text-section reveal">
+<!-- ==================== TIERS ==================== -->
+<div class="tiers reveal">
     <div class="container">
-        <p>You can feel it. Something's off. You wake up, scroll, work, scroll, sleep. You know you should be doing more but you can't make yourself do it.</p>
-        <p>The voice in your head won't shut up. It tells you you're lazy, you're not good enough, you should be further along. <span class="emphasis">And the worst part is you believe it.</span></p>
-        <p>You're not broken. Your instincts are running software that's 300,000 years old in a world that's 50 years old. <span class="emphasis">That's not a personal failing. That's a sane response to an insane environment.</span></p>
-    </div>
-</div>
+        <h2 class="section-heading" style="text-align:center;">Ways to work with me.</h2>
 
-<div class="reveal">
-    <p class="pull-quote">The problem was never what I was doing.<br>It was what I was feeling.</p>
-</div>
-
-<div class="divider"></div>
-
-<!-- ==================== THREE THREADS ==================== -->
-<div class="text-section reveal">
-    <div class="container">
-        <h2 class="section-heading">Three things nobody taught us.</h2>
-        <div class="threads">
-            <div class="thread">
-                <h3>The voice in your head is not you.</h3>
-                <p>It was given to you by a teacher, a parent, someone who didn't know better. You can learn to talk back to it.</p>
+        <!-- TIER 1: COACHING -->
+        <div class="tier tier-top">
+            <div class="tier-label">1:1 Coaching</div>
+            <h3>Work with me directly.</h3>
+            <p>8 weeks. Weekly calls. Async support between. I audit where you are, figure out what's in the way, and we fix it together.</p>
+            <div class="coaching-grid">
+                <div class="coaching-block"><h4>Week 1</h4><p>Deep audit · 60 min</p></div>
+                <div class="coaching-block"><h4>Weeks 2–7</h4><p>Check-ins · 30 min + async</p></div>
+                <div class="coaching-block"><h4>Week 8</h4><p>Full review · 60 min</p></div>
             </div>
-            <div class="thread">
-                <h3>Your emotions are not the enemy.</h3>
-                <p>Fear and excitement are neurologically identical. Anger, when it flows without resistance, becomes clarity. The feelings you're avoiding are the ones you need most.</p>
-            </div>
-            <div class="thread">
-                <h3>Your body already knows what's wrong.</h3>
-                <p>All stress is held in your muscles. Come to your senses — literally. Your nervous system thinks you're being hunted. You're not.</p>
-            </div>
-        </div>
-        <p style="text-align:center; margin-top:20px;">
-            <a href="https://www.skool.com/restoring-baseline-4494" class="btn btn-secondary">Go deeper in the community — free</a>
-        </p>
-    </div>
-</div>
-
-<!-- ==================== COACHING ==================== -->
-<div class="coaching reveal">
-    <div class="container">
-        <h2 class="section-heading">Work with me directly.</h2>
-        <p style="color:var(--text-secondary); font-size:1.05rem; margin-bottom:4px;">8 weeks. One call a week. Async support between.</p>
-        <p style="color:var(--text-secondary); font-size:0.95rem;">I don't tell you to "just start." I help you understand why you can't.</p>
-
-        <div class="coaching-grid">
-            <div class="coaching-block"><h4>Week 1</h4><p>Deep audit · 60 min</p></div>
-            <div class="coaching-block"><h4>Weeks 2–7</h4><p>Check-ins · 30 min + async</p></div>
-            <div class="coaching-block"><h4>Week 8</h4><p>Full review · 60 min</p></div>
-        </div>
-
-        <div class="qualifier">
-            <h3>This is for you if:</h3>
-            <ul>
-                <li>You know what to do but can't make yourself do it</li>
-                <li>You've never learned how to deal with what you're feeling</li>
-                <li>You want someone who's been there, not someone with a clipboard</li>
-            </ul>
-        </div>
-
-        <div class="qualifier qualifier-not">
-            <h3>Not for you if:</h3>
-            <ul>
-                <li>You want business or career coaching</li>
-                <li>You're looking for motivation, not understanding</li>
-            </ul>
-        </div>
-
-        <div class="cta-group">
-            <a href="/coaching" class="btn btn-primary">Talk to me — free screening call</a>
+            <a href="/coaching" class="btn btn-primary" style="width:100%;display:block;">Talk to me — free screening call</a>
             <p class="cta-micro">Takes 3 minutes. I read every one.</p>
+        </div>
+
+        <!-- TIER 2: COMMUNITY -->
+        <div class="tier tier-mid">
+            <div class="tier-label">Community</div>
+            <h3>Restoring Baseline — Skool</h3>
+            <p>10 modules on emotional work. Weekly live calls. Discussion and accountability from people actually doing the work.</p>
+            <div class="tier-price">
+                <span class="tier-price-old">£29/month</span>
+                <span class="tier-price-new">Free</span>
+                <span class="tier-price-note">for founding members</span>
+            </div>
+            <a href="https://www.skool.com/restoring-baseline-4494" class="btn btn-primary" style="width:100%;display:block;">Join for free</a>
+        </div>
+
+        <!-- TIER 3: FREE -->
+        <div class="tier tier-free">
+            <div class="tier-label">Free</div>
+            <h3>Start here.</h3>
+            <div class="free-items">
+                <a href="https://payhip.com/b/Alpez" class="free-item">
+                    <span class="free-item-title">Free PDF guide</span>
+                    <span class="free-item-desc">9 repairs. 8,000 words. 30 min read.</span>
+                </a>
+                <a href="https://open.spotify.com/show/16E16W0ke5vGOVHZRQfRS4" class="free-item">
+                    <span class="free-item-title">Podcast</span>
+                    <span class="free-item-desc">Long-form on Spotify + YouTube.</span>
+                </a>
+                <a href="https://www.tiktok.com/@whamron" class="free-item">
+                    <span class="free-item-title">431+ videos</span>
+                    <span class="free-item-desc">1.4M+ views across TikTok, YouTube, Instagram.</span>
+                </a>
+                <a href="https://substack.com/@whamron" class="free-item">
+                    <span class="free-item-title">Essays</span>
+                    <span class="free-item-desc">Longer writing on Substack. Free.</span>
+                </a>
+            </div>
         </div>
     </div>
 </div>
@@ -488,39 +459,6 @@
                 <p>I sent 350 job applications after my Masters. 8 hours of screen time a day. Vaping constantly. Looked fine from the outside, felt nothing on the inside.</p>
                 <p>I didn't fix it with a morning routine. I fixed it by learning how to feel things I'd been running from my whole life.</p>
                 <p>431 videos. 1.4 million views. Now I help people one-on-one.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="divider"></div>
-
-<!-- ==================== EMAIL ==================== -->
-<div class="email-section reveal">
-    <div class="container">
-        <h2 class="section-heading">I write longer stuff too.</h2>
-        <p style="color:var(--text-secondary); font-size:0.95rem; margin-bottom:24px;">Essays on emotional work, masculinity, and why you feel stuck. Free.</p>
-        <form class="email-form" onsubmit="window.open('https://whamron.substack.com/subscribe?email=' + encodeURIComponent(this.email.value), '_blank'); return false;">
-            <input type="email" name="email" placeholder="Your email" required class="email-input">
-            <button type="submit" class="email-btn">I'm in</button>
-        </form>
-        <p class="email-note">No spam. Unsubscribe anytime.</p>
-    </div>
-</div>
-
-<!-- ==================== CARDS ==================== -->
-<div class="cards-section reveal">
-    <div class="container">
-        <div class="cards">
-            <div class="card">
-                <h3>Community</h3>
-                <p>10 modules on emotional work. Weekly live calls. People actually doing the work. Free for founding members.</p>
-                <a href="https://www.skool.com/restoring-baseline-4494" class="btn btn-secondary">Join for free</a>
-            </div>
-            <div class="card">
-                <h3>Podcast</h3>
-                <p>Long-form on the stuff that doesn't fit in 30 seconds. Spotify + YouTube.</p>
-                <a href="https://open.spotify.com/show/16E16W0ke5vGOVHZRQfRS4" class="btn btn-secondary">Listen</a>
             </div>
         </div>
     </div>
