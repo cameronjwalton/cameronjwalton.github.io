@@ -41,8 +41,7 @@
         .video-hero .video-wrap {
             position: relative;
             width: 100%;
-            aspect-ratio: 9/16;
-            max-height: 70vh;
+            aspect-ratio: 16/9;
             margin: 0 auto;
             border-radius: 12px;
             overflow: hidden;
@@ -542,8 +541,8 @@
             overlay.classList.add('active');
         }
 
-        // Trigger after 20 seconds
-        setTimeout(show, 20000);
+        // Trigger after 5 seconds
+        setTimeout(show, 5000);
 
         // Trigger at 50% scroll
         window.addEventListener('scroll', function() {
