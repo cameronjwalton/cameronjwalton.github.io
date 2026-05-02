@@ -175,7 +175,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 16px;
-            align-items: start;
+            align-items: stretch;
         }
 
         .tier {
@@ -238,7 +238,8 @@
             line-height: 1.55;
         }
 
-        .tier .btn { width: 100%; display: block; margin-top: auto; }
+        .tier-bottom { margin-top: auto; }
+        .tier .btn { width: 100%; display: block; }
 
         .tier-features {
             list-style: none;
@@ -428,7 +429,9 @@
                     <li>Podcast on Spotify + YouTube</li>
                     <li>Essays on Substack</li>
                 </ul>
-                <a href="https://payhip.com/b/Alpez" class="btn btn-secondary">Get the free guide</a>
+                <div class="tier-bottom">
+                    <a href="https://payhip.com/b/Alpez" class="btn btn-secondary">Get the free guide</a>
+                </div>
             </div>
 
             <!-- COMMUNITY -->
@@ -442,12 +445,14 @@
                     <li>Discussion + accountability</li>
                     <li>Everything in Free</li>
                 </ul>
-                <div class="tier-price">
-                    <span class="tier-price-old">£29/month</span>
-                    <span class="tier-price-new">Free</span>
-                    <span class="tier-price-note">for founding members</span>
+                <div class="tier-bottom">
+                    <div class="tier-price">
+                        <span class="tier-price-old">£29/month</span>
+                        <span class="tier-price-new">Free</span>
+                        <span class="tier-price-note">for founding members</span>
+                    </div>
+                    <a href="https://www.skool.com/restoring-baseline-4494" class="btn btn-primary">Join for free</a>
                 </div>
-                <a href="https://www.skool.com/restoring-baseline-4494" class="btn btn-primary">Join for free</a>
             </div>
 
             <!-- COACHING -->
@@ -463,8 +468,10 @@
                     <li>Voice note support between calls</li>
                     <li>Everything in Community</li>
                 </ul>
-                <a href="/coaching" class="btn btn-primary">Talk to me — free screening call</a>
-                <p class="cta-micro">I read every application.</p>
+                <div class="tier-bottom">
+                    <a href="/coaching" class="btn btn-primary">Talk to me — free screening call</a>
+                    <p class="cta-micro">I read every application.</p>
+                </div>
             </div>
 
         </div>
