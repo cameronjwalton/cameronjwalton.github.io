@@ -9,15 +9,15 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --bg: #0a0a0a;
-            --bg-alt: #111111;
-            --bg-card: #161616;
-            --text: #e8e8e8;
-            --text-secondary: #888888;
-            --text-muted: #555555;
-            --white: #ffffff;
-            --accent: #d4a853;
-            --border: #1e1e1e;
+            --bg: #fafafa;
+            --bg-alt: #f0f0f0;
+            --bg-card: #ffffff;
+            --text: #1a1a1a;
+            --text-secondary: #555555;
+            --text-muted: #999999;
+            --white: #1a1a1a;
+            --accent: #b8860b;
+            --border: #e0e0e0;
             --max-w: 620px;
         }
 
@@ -197,7 +197,7 @@
         input:focus,
         textarea:focus,
         select:focus {
-            border-color: #444;
+            border-color: var(--accent);
         }
 
         textarea {
@@ -215,8 +215,8 @@
             width: 100%;
             padding: 14px 24px;
             margin-top: 32px;
-            background: var(--white);
-            color: var(--bg);
+            background: var(--accent);
+            color: #fff;
             border: none;
             border-radius: 10px;
             font-size: 1rem;
