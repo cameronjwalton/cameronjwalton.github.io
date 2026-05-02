@@ -3,589 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restoring Baseline · @whamron</title>
-    <meta name="description" content="9 repairs. Not goals. Repairs. A guide to undoing the damage the modern world has done to you.">
+    <title>Restoring Baseline</title>
+    <meta name="description" content="I've been where you are. Emotional work, coaching, and a free community for young men who know something is off but can't figure out what.">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0a;
+            --bg-alt: #111111;
+            --bg-card: #161616;
+            --text: #e8e8e8;
+            --text-secondary: #888888;
+            --text-muted: #555555;
+            --white: #ffffff;
+            --accent: #d4a853;
+            --border: #1e1e1e;
+            --max-w: 720px;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-            background: #0a0a0a;
-            color: #e0e0e0;
-            line-height: 1.7;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.75;
             overflow-x: hidden;
         }
 
-        .container {
-            max-width: 680px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+        .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
 
-        /* Banner */
-        .banner {
-            display: block;
-            text-align: center;
-            padding: 12px 24px;
-            background: #1DB954;
-            color: #000000;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: background 0.3s;
-        }
+        /* ---- SECTIONS ---- */
+        .section { padding: 80px 0; }
+        .section-alt { background: var(--bg-alt); }
 
-        .banner-link {
-            color: #000000;
-            text-decoration: underline;
-            font-weight: 700;
-        }
-
-        .banner-link:hover {
-            opacity: 0.7;
-        }
-
-        /* Hero */
+        /* ---- HERO ---- */
         .hero {
-            padding: 80px 0 48px;
+            padding: 100px 0 64px;
             text-align: center;
-            position: relative;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -120px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
-            pointer-events: none;
+        .hero-brand {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 24px;
         }
 
         .hero h1 {
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             font-weight: 700;
-            color: #ffffff;
+            color: var(--white);
             line-height: 1.1;
-            margin-bottom: 8px;
-            letter-spacing: -1px;
-        }
-
-        .hero .author {
-            font-size: 1rem;
-            color: #555;
+            letter-spacing: -2px;
             margin-bottom: 16px;
         }
 
-        .hero .tagline {
-            font-size: 1.05rem;
-            color: #888;
-            margin-bottom: 12px;
-            margin-top: 32px;
-            font-style: italic;
-            line-height: 1.8;
+        .hero .subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
             max-width: 520px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 40px;
         }
 
-        /* Stats bar */
-        .stats {
+        .hero-ctas {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+
+        .hero-stats {
             display: flex;
             justify-content: center;
             gap: 32px;
-            padding: 20px 0 40px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
         }
 
-        .stat {
-            text-align: center;
-        }
-
-        .stat-num {
-            font-size: 1.4rem;
+        .hero-stat-num {
+            font-size: 1.6rem;
             font-weight: 700;
-            color: #fff;
+            color: var(--accent);
             display: block;
         }
 
-        .stat-label {
-            font-size: 0.75rem;
-            color: #555;
+        .hero-stat-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        /* Tabs */
-        .tabs-container {
-            max-width: 400px;
-            margin: 0 auto;
-            border-top: 1px solid #141414;
-            padding-top: 32px;
-        }
-
-        .tab-buttons {
-            display: flex;
-            gap: 0;
-            margin-bottom: 24px;
-            border-bottom: 1px solid #222;
-        }
-
-        .tab-btn {
-            flex: 1;
-            background: none;
-            border: none;
-            color: #555;
-            font-size: 0.85rem;
-            font-weight: 600;
-            padding: 10px 0;
-            cursor: pointer;
-            transition: color 0.3s, border-color 0.3s;
-            border-bottom: 2px solid transparent;
-            margin-bottom: -1px;
-        }
-
-        .tab-btn:hover {
-            color: #aaa;
-        }
-
-        .tab-btn.active {
-            color: #fff;
-            border-bottom-color: #fff;
-        }
-
-        .tab-panel {
-            display: none;
-            text-align: center;
-            padding-bottom: 32px;
-        }
-
-        .tab-panel.active {
-            display: block;
-        }
-
-        .tab-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 8px;
-        }
-
-        .tab-desc {
-            font-size: 0.9rem;
-            color: #888;
-            margin-bottom: 20px;
-        }
-
-        .tab-options {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 8px;
-        }
-
-        .newsletter-input {
-            flex: 1;
-            padding: 12px 14px;
-            border: 1px solid #222;
-            border-radius: 8px;
-            background: #111;
-            color: #fff;
-            font-size: 0.9rem;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .newsletter-input:focus {
-            border-color: #444;
-        }
-
-        .newsletter-input::placeholder {
-            color: #555;
-        }
-
-        .newsletter-btn {
-            padding: 12px 20px;
-            background: #fff;
-            color: #0a0a0a;
-            border: none;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background 0.3s;
-            white-space: nowrap;
-        }
-
-        .newsletter-btn:hover {
-            background: #e0e0e0;
-        }
-
-        /* Links label */
-        .links-label {
-            font-size: 0.9rem;
-            color: #ffffff;
-            text-align: center;
-            max-width: 360px;
-            margin: 0 auto 12px;
-        }
-
-        /* Divider */
-        .divider {
-            width: 40px;
-            height: 1px;
-            background: #222;
-            margin: 32px auto;
-        }
-
-        /* Link buttons */
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 56px;
-            max-width: 360px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .link-btn {
-            display: block;
-            padding: 15px 24px;
-            border: 1px solid #1e1e1e;
-            border-radius: 10px;
-            color: #ccc;
-            text-decoration: none;
-            text-align: center;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .link-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .link-btn:hover::before {
-            left: 100%;
-        }
-
-        .link-btn:hover {
-            border-color: #333;
-            color: #fff;
-            transform: translateY(-1px);
-        }
-
-        .link-primary {
-            background: #ffffff;
-            color: #0a0a0a;
-            border-color: #ffffff;
-            font-weight: 700;
-        }
-
-        .link-primary:hover {
-            background: #f0f0f0;
-            color: #0a0a0a;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(255,255,255,0.1);
-        }
-
-        /* Scroll reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Sections */
-        section {
-            padding: 56px 0;
-            border-top: 1px solid #141414;
-        }
-
-        section h2 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 24px;
-            letter-spacing: -0.5px;
-        }
-
-        section p {
-            margin-bottom: 16px;
-            color: #999;
-            font-size: 1.05rem;
-        }
-
-        .emphasis {
-            color: #ffffff;
-            font-weight: 600;
-        }
-
-        /* Pull quote */
-        .pull-quote {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #ffffff;
-            text-align: center;
-            padding: 40px 0;
-            line-height: 1.3;
-            letter-spacing: -0.5px;
-        }
-
-        /* Steps list */
-        .steps {
-            list-style: none;
-            padding: 0;
-            margin: 24px 0;
-            counter-reset: step;
-        }
-
-        .steps li {
-            padding: 16px 0;
-            border-bottom: 1px solid #141414;
-            color: #999;
-            font-size: 1.05rem;
-            display: flex;
-            gap: 16px;
-            align-items: baseline;
-        }
-
-        .steps li span.num {
-            color: #333;
-            font-weight: 700;
-            font-size: 0.85rem;
-            min-width: 24px;
-            font-family: 'SF Mono', 'Fira Code', monospace;
-        }
-
-        .steps li span.step-title {
-            color: #ffffff;
-            font-weight: 600;
-        }
-
-        .steps li:hover span.num {
-            color: #fff;
-            transition: color 0.3s;
-        }
-
-        /* What you get */
-        .includes {
-            list-style: none;
-            padding: 0;
-            margin: 24px 0;
-        }
-
-        .includes li {
-            padding: 10px 0;
-            color: #999;
-            font-size: 1.05rem;
-            padding-left: 28px;
-            position: relative;
-        }
-
-        .includes li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #fff;
-            font-weight: 700;
-        }
-
-        /* CTA */
-        .cta-section {
-            text-align: center;
-            padding: 64px 0;
-            border-top: 1px solid #141414;
-            position: relative;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255,255,255,0.02) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .cta-section h2 {
-            margin-bottom: 12px;
-        }
-
-        .cta-section p {
-            margin-bottom: 36px;
-        }
-
-        .btn-group {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 16px 48px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            width: 100%;
-            max-width: 360px;
-            text-align: center;
-        }
-
-        .btn-primary {
-            background: #ffffff;
-            color: #0a0a0a;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(255,255,255,0.1);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #666;
-            border: 1px solid #222;
-        }
-
-        .btn-secondary:hover {
-            border-color: #444;
-            color: #fff;
-        }
-
-        /* Waitlist form */
-        .waitlist-form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            align-items: center;
-            max-width: 360px;
-            margin: 0 auto;
-        }
-
-        .waitlist-input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 1px solid #222;
-            border-radius: 8px;
-            background: #111;
-            color: #fff;
-            font-size: 1rem;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .waitlist-input:focus {
-            border-color: #444;
-        }
-
-        .waitlist-input::placeholder {
-            color: #555;
-        }
-
-        .waitlist-btn {
-            width: 100%;
-        }
-
-        /* About */
-        .about {
-            padding: 48px 0;
-            border-top: 1px solid #141414;
-            text-align: center;
-        }
-
-        .about p {
-            color: #555;
-            font-size: 0.9rem;
-            max-width: 480px;
-            margin: 0 auto;
-        }
-
-        /* Socials */
         .socials {
             display: flex;
-            gap: 16px;
+            gap: 12px;
             justify-content: center;
-            margin-bottom: 48px;
         }
 
         .socials a {
-            color: #888;
+            color: var(--text-muted);
             text-decoration: none;
             transition: color 0.3s, transform 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            border: 1px solid #1e1e1e;
+            border: 1px solid var(--border);
         }
 
         .socials a:hover {
-            color: #fff;
+            color: var(--white);
             border-color: #333;
             transform: translateY(-2px);
         }
 
-        /* Footer */
-        footer {
-            padding: 40px 0;
+        /* ---- BUTTONS ---- */
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
             text-align: center;
-            color: #222;
-            font-size: 0.75rem;
+            letter-spacing: 0.5px;
         }
 
-        /* Social Proof Section */
-        .social-proof {
-            padding: 56px 0 48px;
-            border-top: 1px solid #141414;
-            overflow: hidden;
+        .btn-primary {
+            background: var(--white);
+            color: var(--bg);
         }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 24px rgba(212, 168, 83, 0.15);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid #333;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-muted);
+            color: var(--white);
+        }
+
+        /* ---- DM CAROUSEL ---- */
+        .social-proof { padding: 56px 0 48px; overflow: hidden; }
 
         .social-proof-header {
             text-align: center;
             margin-bottom: 32px;
             padding: 0 24px;
-        }
-
-        .social-proof-header h2 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 16px;
-            letter-spacing: -0.5px;
         }
 
         .proof-stats {
@@ -595,25 +171,22 @@
             flex-wrap: wrap;
         }
 
-        .proof-stat {
-            text-align: center;
-        }
+        .proof-stat { text-align: center; }
 
         .proof-stat-num {
             font-size: 1.3rem;
             font-weight: 700;
-            color: #fff;
+            color: var(--accent);
             display: block;
         }
 
         .proof-stat-label {
             font-size: 0.7rem;
-            color: #555;
+            color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        /* Marquee carousel */
         .dm-carousel {
             position: relative;
             width: 100vw;
@@ -631,15 +204,8 @@
             pointer-events: none;
         }
 
-        .dm-carousel::before {
-            left: 0;
-            background: linear-gradient(to right, #0a0a0a, transparent);
-        }
-
-        .dm-carousel::after {
-            right: 0;
-            background: linear-gradient(to left, #0a0a0a, transparent);
-        }
+        .dm-carousel::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
+        .dm-carousel::after { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
 
         .dm-track {
             display: flex;
@@ -648,31 +214,25 @@
             width: max-content;
         }
 
-        .dm-track:hover {
-            animation-play-state: paused;
-        }
+        .dm-track:hover { animation-play-state: paused; }
 
         .dm-track img {
             height: 320px;
             width: auto;
             border-radius: 12px;
-            border: 1px solid #1e1e1e;
+            border: 1px solid var(--border);
             flex-shrink: 0;
             opacity: 0.85;
             transition: opacity 0.3s, transform 0.3s;
         }
 
-        .dm-track img:hover {
-            opacity: 1;
-            transform: scale(1.03);
-        }
+        .dm-track img:hover { opacity: 1; transform: scale(1.03); }
 
         @keyframes marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
 
-        /* Second row scrolls opposite direction */
         .dm-track-reverse {
             animation: marquee-reverse 100s linear infinite;
             margin-top: 16px;
@@ -683,322 +243,556 @@
             100% { transform: translateX(0); }
         }
 
-        .proof-note {
+        /* ---- CONTENT SECTIONS ---- */
+        .section h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .section p {
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .emphasis { color: var(--white); font-weight: 600; }
+
+        .pull-quote {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
             text-align: center;
-            margin-top: 24px;
-            color: #444;
+            padding: 48px 0;
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+        }
+
+        /* ---- THREE THREADS ---- */
+        .threads {
+            display: grid;
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .thread {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px 24px;
+        }
+
+        .thread h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .thread p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* ---- COACHING SECTION ---- */
+        .coaching-structure {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 32px 0;
+        }
+
+        .coaching-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px 20px;
+            text-align: center;
+        }
+
+        .coaching-block h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 6px;
+        }
+
+        .coaching-block p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            margin: 24px 0 4px;
+        }
+
+        .price-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        .qualifier { margin: 32px 0; }
+
+        .qualifier h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .qualifier ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .qualifier li {
+            padding: 6px 0;
+            padding-left: 24px;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .qualifier li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .qualifier-not li::before {
+            content: "×";
+            color: var(--text-muted);
+        }
+
+        .cta-micro {
             font-size: 0.8rem;
-            font-style: italic;
-            padding: 0 24px;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 12px;
         }
 
+        /* ---- ABOUT ---- */
+        .about-content {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        .about-photo {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            aspect-ratio: 3/4;
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-align: center;
+            padding: 16px;
+        }
+
+        /* Placeholder for real photo: replace .about-photo div with <img> */
+
+        .about-text p {
+            font-size: 1rem;
+        }
+
+        /* ---- TESTIMONIAL INTERLEAVE ---- */
+        .testimonial-interleave {
+            padding: 56px 0;
+            text-align: center;
+        }
+
+        .testimonial-interleave blockquote {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.5;
+            max-width: 560px;
+            margin: 0 auto 16px;
+            font-style: normal;
+        }
+
+        .testimonial-interleave cite {
+            font-style: normal;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ---- EMAIL CAPTURE ---- */
+        .email-form {
+            display: flex;
+            gap: 8px;
+            max-width: 440px;
+            margin: 0 auto;
+        }
+
+        .email-input {
+            flex: 1;
+            padding: 14px 16px;
+            border: 1px solid #222;
+            border-radius: 10px;
+            background: var(--bg);
+            color: var(--white);
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        .email-input:focus { border-color: #444; }
+        .email-input::placeholder { color: var(--text-muted); }
+
+        .email-btn {
+            padding: 14px 24px;
+            background: var(--white);
+            color: var(--bg);
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+            font-family: inherit;
+        }
+
+        .email-btn:hover {
+            box-shadow: 0 0 24px rgba(212, 168, 83, 0.15);
+        }
+
+        .email-note {
+            text-align: center;
+            margin-top: 12px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* ---- CARDS GRID ---- */
+        .cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px 24px;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .card .btn { width: 100%; display: block; }
+
+        /* ---- VIDEO PLACEHOLDER ---- */
+        .video-placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin: 32px 0;
+        }
+
+        /* ---- FOOTER ---- */
+        footer {
+            padding: 48px 0;
+            text-align: center;
+            color: #222;
+            font-size: 0.75rem;
+        }
+
+        /* ---- REVEAL ---- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ---- MOBILE ---- */
         @media (max-width: 600px) {
-            .dm-track img {
-                height: 240px;
-            }
+            .hero { padding: 64px 0 48px; }
+            .hero h1 { font-size: 2.2rem; letter-spacing: -1px; }
+            .hero .subtitle { font-size: 1rem; }
+            .hero-stats { gap: 16px; }
+            .hero-stat-num { font-size: 1.3rem; }
+            .hero-ctas { flex-direction: column; align-items: center; }
+            .hero-ctas .btn { width: 100%; max-width: 320px; }
 
-            .proof-stats {
-                gap: 16px;
-            }
+            .section { padding: 56px 0; }
+            .container { padding: 0 20px; }
 
-            .proof-stat-num {
-                font-size: 1.1rem;
-            }
+            .coaching-structure { grid-template-columns: 1fr; }
+            .cards { grid-template-columns: 1fr; }
+            .about-content { grid-template-columns: 1fr; }
+            .about-photo { max-width: 200px; margin: 0 auto; }
 
+            .dm-track img { height: 240px; }
             .dm-carousel::before,
-            .dm-carousel::after {
-                width: 40px;
-            }
-        }
+            .dm-carousel::after { width: 40px; }
 
-        /* Mobile */
-        @media (max-width: 600px) {
-            .hero {
-                padding: 60px 0 36px;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .stats {
-                gap: 20px;
-            }
-
-            .stat-num {
-                font-size: 1.15rem;
-            }
-
-            section h2 {
-                font-size: 1.3rem;
-            }
-
-            .pull-quote {
-                font-size: 1.25rem;
-            }
+            .pull-quote { font-size: 1.25rem; }
+            .email-form { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-<!-- Banner -->
-<div class="banner">
-    Episode 2: Animals in Captivity is out now.
-    <a href="https://open.spotify.com/show/16E16W0ke5vGOVHZRQfRS4" class="banner-link">Spotify</a>
-    ·
-    <a href="https://youtu.be/-3kikGQShWo" class="banner-link">YouTube</a>
+<!-- ==================== HERO ==================== -->
+<div class="hero">
+    <div class="container">
+        <p class="hero-brand">Restoring Baseline</p>
+        <h1>I've been where you are.</h1>
+        <p class="subtitle">Emotional work, real talk, and a community for people who know something is off but can't figure out what. From someone who's been through it.</p>
+
+        <div class="hero-ctas">
+            <a href="/coaching" class="btn btn-primary">Talk to me</a>
+            <a href="https://www.skool.com/restoring-baseline-4494" class="btn btn-secondary">Join the community — free</a>
+        </div>
+
+        <div class="hero-stats">
+            <div>
+                <span class="hero-stat-num">1.4M+</span>
+                <span class="hero-stat-label">Views</span>
+            </div>
+            <div>
+                <span class="hero-stat-num">431</span>
+                <span class="hero-stat-label">Videos</span>
+            </div>
+            <div>
+                <span class="hero-stat-num">3</span>
+                <span class="hero-stat-label">Platforms</span>
+            </div>
+        </div>
+
+        <div class="socials">
+            <a href="https://www.tiktok.com/@whamron" aria-label="TikTok"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78c.27 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.3 6.34 6.34 0 0 0 9.49 21.6a6.34 6.34 0 0 0 6.34-6.34V8.7a8.16 8.16 0 0 0 3.76.92V6.69Z"/></svg></a>
+            <a href="https://www.youtube.com/@whamron_yt" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 0 0 .5 6.19 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.81ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg></a>
+            <a href="https://www.instagram.com/whamron" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.97.25 2.43.41.61.24 1.05.52 1.51.98.46.46.74.9.98 1.51.17.46.36 1.26.41 2.43.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.97-.41 2.43a4.07 4.07 0 0 1-.98 1.51c-.46.46-.9.74-1.51.98-.46.17-1.26.36-2.43.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.25-2.43-.41a4.07 4.07 0 0 1-1.51-.98 4.07 4.07 0 0 1-.98-1.51c-.17-.46-.36-1.26-.41-2.43C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.97.41-2.43.24-.61.52-1.05.98-1.51a4.07 4.07 0 0 1 1.51-.98c.46-.17 1.26-.36 2.43-.41C8.42 2.17 8.8 2.16 12 2.16ZM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.96 5.96 0 0 0-2.16 1.41A5.96 5.96 0 0 0 .57 4.2C.27 4.96.07 5.84.01 7.11.01 8.39 0 8.8 0 12.06s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.41 2.16a5.96 5.96 0 0 0 2.16 1.41c.76.3 1.64.5 2.91.56C8.39 24 8.8 24 12.06 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.96 5.96 0 0 0 2.16-1.41 5.96 5.96 0 0 0 1.41-2.16c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.96 5.96 0 0 0-1.41-2.16A5.96 5.96 0 0 0 19.91.63C19.15.33 18.27.13 17 .07 15.72.01 15.31 0 12.06 0H12Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88Z"/></svg></a>
+            <a href="https://open.spotify.com/show/16E16W0ke5vGOVHZRQfRS4" aria-label="Spotify"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.7 1.32.42.18.48.66.24 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-.99-.12-1.14-.6-.12-.48.12-.99.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.24.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-.96.6-1.56.3z"/></svg></a>
+            <a href="https://substack.com/@whamron" aria-label="Substack"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg></a>
+        </div>
+    </div>
 </div>
 
-<div class="container">
-
-    <!-- Hero -->
-    <div class="hero">
-        <h1>@whamron</h1>
-        <p class="tagline">"For 200,000 years, humans lived lives of <strong>almost unimaginable difficulty</strong>, but the concepts of being depressed and unfulfilled <em>didn't exist</em>. I help people find and do the difficult things that are in the way of getting back to that <strong>natural baseline fulfilment</strong> and go beyond it."</p>
-    </div>
-
-    <!-- Socials -->
-    <div class="socials">
-        <a href="https://www.tiktok.com/@whamron" aria-label="TikTok">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78c.27 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.3 6.34 6.34 0 0 0 9.49 21.6a6.34 6.34 0 0 0 6.34-6.34V8.7a8.16 8.16 0 0 0 3.76.92V6.69Z"/></svg>
-        </a>
-        <a href="https://www.youtube.com/@whamron_yt" aria-label="YouTube">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 0 0 .5 6.19 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.81ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/whamron" aria-label="Instagram">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.97.25 2.43.41.61.24 1.05.52 1.51.98.46.46.74.9.98 1.51.17.46.36 1.26.41 2.43.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.97-.41 2.43a4.07 4.07 0 0 1-.98 1.51c-.46.46-.9.74-1.51.98-.46.17-1.26.36-2.43.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.25-2.43-.41a4.07 4.07 0 0 1-1.51-.98 4.07 4.07 0 0 1-.98-1.51c-.17-.46-.36-1.26-.41-2.43C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.97.41-2.43.24-.61.52-1.05.98-1.51a4.07 4.07 0 0 1 1.51-.98c.46-.17 1.26-.36 2.43-.41C8.42 2.17 8.8 2.16 12 2.16ZM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.96 5.96 0 0 0-2.16 1.41A5.96 5.96 0 0 0 .57 4.2C.27 4.96.07 5.84.01 7.11.01 8.39 0 8.8 0 12.06s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.41 2.16a5.96 5.96 0 0 0 2.16 1.41c.76.3 1.64.5 2.91.56C8.39 24 8.8 24 12.06 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.96 5.96 0 0 0 2.16-1.41 5.96 5.96 0 0 0 1.41-2.16c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.96 5.96 0 0 0-1.41-2.16A5.96 5.96 0 0 0 19.91.63C19.15.33 18.27.13 17 .07 15.72.01 15.31 0 12.06 0H12Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88Z"/></svg>
-        </a>
-        <a href="https://open.spotify.com/show/16E16W0ke5vGOVHZRQfRS4" aria-label="Spotify">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.7 1.32.42.18.48.66.24 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-.99-.12-1.14-.6-.12-.48.12-.99.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.24.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-.96.6-1.56.3z"/></svg>
-        </a>
-        <a href="https://substack.com/@whamron" aria-label="Substack">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
-        </a>
-        <a href="mailto:enquiries@whamron.com" aria-label="Email">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        </a>
-    </div>
-
-    <!-- Tabs -->
-    <div class="tabs-container">
-        <div class="tab-buttons">
-            <button class="tab-btn active" data-tab="community">Community</button>
-            <button class="tab-btn" data-tab="coaching">Coaching</button>
-            <button class="tab-btn" data-tab="guide">Guide</button>
-            <button class="tab-btn" data-tab="newsletter">Newsletter</button>
-        </div>
-
-        <div class="tab-panel active" id="tab-community">
-            <h2 class="tab-title">Join the community</h2>
-            <p class="tab-desc">Discussion, weekly live calls, and accountability from people actually doing the work. Free for founding members, then £29/month.</p>
-            <div class="tab-options">
-                <a href="https://www.skool.com/restoring-baseline-4494" class="link-btn link-primary">Join for free</a>
-            </div>
-        </div>
-
-        <div class="tab-panel" id="tab-coaching">
-            <h2 class="tab-title">1:1 Coaching</h2>
-            <p class="tab-desc">8 weeks of personalised coaching built around the 9 repairs. Weekly calls, async support between sessions, full accountability.</p>
-            <div class="tab-options">
-                <a href="/coaching" class="link-btn link-primary">Apply for coaching</a>
-            </div>
-        </div>
-
-        <div class="tab-panel" id="tab-guide">
-            <h2 class="tab-title">Restoring Baseline</h2>
-            <p class="tab-desc">9 repairs to undo the damage the modern world has done to you. Not goals. Repairs.</p>
-            <div class="tab-options">
-                <a href="https://payhip.com/b/dj5g2" class="link-btn link-primary">Full Guide</a>
-                <a href="https://payhip.com/b/Alpez" class="link-btn">Free Version</a>
-            </div>
-        </div>
-
-        <div class="tab-panel" id="tab-newsletter">
-            <h2 class="tab-title">Newsletter</h2>
-            <p class="tab-desc">Longer essays on the ideas behind the videos. Delivered to your inbox. Free.</p>
-            <form class="newsletter-form" onsubmit="window.open('https://whamron.substack.com/subscribe?email=' + encodeURIComponent(this.email.value), '_blank'); return false;">
-                <input type="email" name="email" placeholder="Your email" required class="newsletter-input">
-                <button type="submit" class="newsletter-btn">Subscribe</button>
-            </form>
+<!-- ==================== SOCIAL PROOF ==================== -->
+<div class="social-proof reveal">
+    <div class="social-proof-header">
+        <div class="proof-stats">
+            <div class="proof-stat"><span class="proof-stat-num">1,600+</span><span class="proof-stat-label">Comments</span></div>
+            <div class="proof-stat"><span class="proof-stat-num">29,000+</span><span class="proof-stat-label">Saves</span></div>
+            <div class="proof-stat"><span class="proof-stat-num">1.4M+</span><span class="proof-stat-label">Views</span></div>
+            <div class="proof-stat"><span class="proof-stat-num">121K+</span><span class="proof-stat-label">Likes</span></div>
         </div>
     </div>
 
-    <!-- Problem -->
-    <section class="reveal">
-        <h2>You already know what you should be doing.</h2>
-        <p>You know you should go to the gym. You know you should put your phone down. You know you should eat better. You know all of this.</p>
-        <p>The problem has never been knowledge. The problem is that <span class="emphasis">you feel like doing the opposite.</span> And your feelings win every single time because they're immediate and they're loud and they've had millions of years of evolution backing them up.</p>
-        <p>Modern society is a failed experiment. We built a world our brains and bodies were never designed for. The result is an entire generation that is depressed, addicted, and directionless.</p>
-    </section>
-
-    <div class="reveal">
-        <p class="pull-quote">Animals in captivity. By our own design.</p>
-    </div>
-
-    <!-- Social Proof -->
-    <div class="social-proof reveal">
-        <div class="social-proof-header">
-            <div class="proof-stats">
-                <div class="proof-stat">
-                    <span class="proof-stat-num">1,600+</span>
-                    <span class="proof-stat-label">Comments</span>
-                </div>
-                <div class="proof-stat">
-                    <span class="proof-stat-num">29,000+</span>
-                    <span class="proof-stat-label">Saves</span>
-                </div>
-                <div class="proof-stat">
-                    <span class="proof-stat-num">1.4M+</span>
-                    <span class="proof-stat-label">Views</span>
-                </div>
-                <div class="proof-stat">
-                    <span class="proof-stat-num">121K+</span>
-                    <span class="proof-stat-label">Likes</span>
-                </div>
-            </div>
+    <div class="dm-carousel">
+        <div class="dm-track">
+            <img src="/dms/IMG_6092.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6093.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6094.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6095.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6096.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6097.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6098.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6099.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6100.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6101.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6102.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6103.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6104.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6105.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6106.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6107.jpg" alt="DM" loading="lazy">
+            <img src="/dms/IMG_6092.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6093.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6094.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6095.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6096.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6097.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6098.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6099.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6100.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6101.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6102.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6103.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6104.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6105.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6106.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6107.jpg" alt="DM" loading="lazy">
         </div>
-
-        <div class="dm-carousel">
-            <div class="dm-track">
-                <!-- First set -->
-                <img src="/dms/IMG_6092.jpg" alt="DM: Your page is a gold mine brother" loading="lazy">
-                <img src="/dms/IMG_6093.jpg" alt="DM: Some of your videos have pulled me back together" loading="lazy">
-                <img src="/dms/IMG_6094.jpg" alt="DM: Your content is literally BTC in 2009" loading="lazy">
-                <img src="/dms/IMG_6095.jpg" alt="DM: I appreciate your content and have found it very useful" loading="lazy">
-                <img src="/dms/IMG_6096.jpg" alt="DM: You're gonna go places bro" loading="lazy">
-                <img src="/dms/IMG_6097.jpg" alt="DM: Your page is a hidden gem" loading="lazy">
-                <img src="/dms/IMG_6098.jpg" alt="DM: Thanks for doing what you're doing" loading="lazy">
-                <img src="/dms/IMG_6099.jpg" alt="DM: I always stop scrolling when I see one of your reels" loading="lazy">
-                <img src="/dms/IMG_6100.jpg" alt="DM: You are the only person on instagram who speaks actual facts" loading="lazy">
-                <img src="/dms/IMG_6101.jpg" alt="DM: One of the few accounts that gives genuinely insightful insights" loading="lazy">
-                <img src="/dms/IMG_6102.jpg" alt="DM: It's changing my life in ways you couldn't imagine" loading="lazy">
-                <img src="/dms/IMG_6103.jpg" alt="DM: I love your content, it's really inspirational" loading="lazy">
-                <img src="/dms/IMG_6104.jpg" alt="DM: Deep philosophical truths compressed into a short video" loading="lazy">
-                <img src="/dms/IMG_6105.jpg" alt="DM: Your advice is always on point" loading="lazy">
-                <img src="/dms/IMG_6106.jpg" alt="DM: Your videos are incredible" loading="lazy">
-                <img src="/dms/IMG_6107.jpg" alt="DM: Your videos are great, you're going to blow up" loading="lazy">
-                <!-- Duplicate set for seamless loop -->
-                <img src="/dms/IMG_6092.jpg" alt="DM: Your page is a gold mine brother" loading="lazy">
-                <img src="/dms/IMG_6093.jpg" alt="DM: Some of your videos have pulled me back together" loading="lazy">
-                <img src="/dms/IMG_6094.jpg" alt="DM: Your content is literally BTC in 2009" loading="lazy">
-                <img src="/dms/IMG_6095.jpg" alt="DM: I appreciate your content and have found it very useful" loading="lazy">
-                <img src="/dms/IMG_6096.jpg" alt="DM: You're gonna go places bro" loading="lazy">
-                <img src="/dms/IMG_6097.jpg" alt="DM: Your page is a hidden gem" loading="lazy">
-                <img src="/dms/IMG_6098.jpg" alt="DM: Thanks for doing what you're doing" loading="lazy">
-                <img src="/dms/IMG_6099.jpg" alt="DM: I always stop scrolling when I see one of your reels" loading="lazy">
-                <img src="/dms/IMG_6100.jpg" alt="DM: You are the only person on instagram who speaks actual facts" loading="lazy">
-                <img src="/dms/IMG_6101.jpg" alt="DM: One of the few accounts that gives genuinely insightful insights" loading="lazy">
-                <img src="/dms/IMG_6102.jpg" alt="DM: It's changing my life in ways you couldn't imagine" loading="lazy">
-                <img src="/dms/IMG_6103.jpg" alt="DM: I love your content, it's really inspirational" loading="lazy">
-                <img src="/dms/IMG_6104.jpg" alt="DM: Deep philosophical truths compressed into a short video" loading="lazy">
-                <img src="/dms/IMG_6105.jpg" alt="DM: Your advice is always on point" loading="lazy">
-                <img src="/dms/IMG_6106.jpg" alt="DM: Your videos are incredible" loading="lazy">
-                <img src="/dms/IMG_6107.jpg" alt="DM: Your videos are great, you're going to blow up" loading="lazy">
-            </div>
-
-            <div class="dm-track dm-track-reverse">
-                <!-- Second set (remaining DMs) -->
-                <img src="/dms/IMG_6108.jpg" alt="DM: You are honestly changing my life subtly every day" loading="lazy">
-                <img src="/dms/IMG_6109.jpg" alt="DM: No BS straight up honest advice and reality checks" loading="lazy">
-                <img src="/dms/IMG_6111.jpg" alt="DM: Insanely good content. In all this noise, you make sense" loading="lazy">
-                <img src="/dms/IMG_6112.jpg" alt="DM: I really like your vids" loading="lazy">
-                <img src="/dms/IMG_6113.jpg" alt="DM: Best content on here right now" loading="lazy">
-                <img src="/dms/IMG_6114.jpg" alt="DM: You're gonna get big pretty soon" loading="lazy">
-                <img src="/dms/IMG_6115.jpg" alt="DM: The videos are very insightful" loading="lazy">
-                <img src="/dms/IMG_6116.jpg" alt="DM: I've never been able to articulate this so well like you did" loading="lazy">
-                <img src="/dms/IMG_6117.jpg" alt="DM: The content is fire" loading="lazy">
-                <img src="/dms/IMG_6118.jpg" alt="DM: It's taken me to unimaginable places" loading="lazy">
-                <img src="/dms/IMG_6953.jpg" alt="DM: Big fan of the content, fellow software engineer" loading="lazy">
-                <img src="/dms/IMG_7074.jpg" alt="DM: It's genuinely opened my eyes to so much" loading="lazy">
-                <img src="/dms/IMG_7133.jpg" alt="DM: Your content is great and I resonate with it so much" loading="lazy">
-                <img src="/dms/IMG_7202.jpg" alt="DM: Your videos are really helping me navigate a difficult transition" loading="lazy">
-                <img src="/dms/IMG_8080.jpg" alt="DM: It's made me realise I need to actually get up and do something" loading="lazy">
-                <img src="/dms/IMG_8567.jpg" alt="DM: Some of your videos have pulled me back together" loading="lazy">
-                <!-- Duplicate set for seamless loop -->
-                <img src="/dms/IMG_6108.jpg" alt="DM: You are honestly changing my life subtly every day" loading="lazy">
-                <img src="/dms/IMG_6109.jpg" alt="DM: No BS straight up honest advice and reality checks" loading="lazy">
-                <img src="/dms/IMG_6111.jpg" alt="DM: Insanely good content. In all this noise, you make sense" loading="lazy">
-                <img src="/dms/IMG_6112.jpg" alt="DM: I really like your vids" loading="lazy">
-                <img src="/dms/IMG_6113.jpg" alt="DM: Best content on here right now" loading="lazy">
-                <img src="/dms/IMG_6114.jpg" alt="DM: You're gonna get big pretty soon" loading="lazy">
-                <img src="/dms/IMG_6115.jpg" alt="DM: The videos are very insightful" loading="lazy">
-                <img src="/dms/IMG_6116.jpg" alt="DM: I've never been able to articulate this so well like you did" loading="lazy">
-                <img src="/dms/IMG_6117.jpg" alt="DM: The content is fire" loading="lazy">
-                <img src="/dms/IMG_6118.jpg" alt="DM: It's taken me to unimaginable places" loading="lazy">
-                <img src="/dms/IMG_6953.jpg" alt="DM: Big fan of the content, fellow software engineer" loading="lazy">
-                <img src="/dms/IMG_7074.jpg" alt="DM: It's genuinely opened my eyes to so much" loading="lazy">
-                <img src="/dms/IMG_7133.jpg" alt="DM: Your content is great and I resonate with it so much" loading="lazy">
-                <img src="/dms/IMG_7202.jpg" alt="DM: Your videos are really helping me navigate a difficult transition" loading="lazy">
-                <img src="/dms/IMG_8080.jpg" alt="DM: It's made me realise I need to actually get up and do something" loading="lazy">
-                <img src="/dms/IMG_8567.jpg" alt="DM: Some of your videos have pulled me back together" loading="lazy">
-            </div>
-        </div>
-
-
-    </div>
-
-    <!-- Framework -->
-    <section class="reveal">
-        <h2>The framework.</h2>
-        <p>200,000 years as hunter-gatherers. Small groups, constant movement, real danger, real community. Our instincts were perfectly calibrated for that world.</p>
-        <p>Then we built the modern world. Abundance instead of scarcity. Safety instead of danger. Isolation instead of community. Stillness instead of movement.</p>
-        <p>The anxiety, the restlessness, the feeling that something is wrong. <span class="emphasis">That's not a personal failing. It's a biological mismatch.</span></p>
-        <p>This guide starts from zero. Instead of trying to remove bad things from your current life, you start from nothing and add back only what genuinely helps. 9 repairs, in order of priority. Fix these and the rest takes care of itself.</p>
-    </section>
-
-    <!-- The 9 Steps -->
-    <section class="reveal">
-        <h2>The 9 repairs.</h2>
-        <ol class="steps">
-            <li><span class="num">01</span><span><span class="step-title">Self-Acceptance</span> · you can't build on a foundation of self-hatred</span></li>
-            <li><span class="num">02</span><span><span class="step-title">Content Addiction</span> · the most potent fake signals in the modern world</span></li>
-            <li><span class="num">03</span><span><span class="step-title">Screen Addiction</span> · your screen time IS your free time</span></li>
-            <li><span class="num">04</span><span><span class="step-title">Comfort Addiction</span> · more comfort never leads to more happiness</span></li>
-            <li><span class="num">05</span><span><span class="step-title">Exercise</span> · movement is not a bonus, it's the biological minimum</span></li>
-            <li><span class="num">06</span><span><span class="step-title">Diet</span> · your taste buds are being lied to</span></li>
-            <li><span class="num">07</span><span><span class="step-title">Fear</span> · the things you're most afraid of are the things you most need to do</span></li>
-            <li><span class="num">08</span><span><span class="step-title">Relationships</span> · loneliness is a clinical health risk</span></li>
-            <li><span class="num">09</span><span><span class="step-title">Goals</span> · this comes last because if you've done the first eight, you probably don't need a grand purpose anymore</span></li>
-        </ol>
-        <p>The order matters. You can't skip to exercise if you hate yourself. You can't set goals if you're addicted to your phone. Each step builds on the last. <span class="emphasis">The sequence is the thing nobody talks about.</span></p>
-    </section>
-
-    <!-- What's in the guide -->
-    <section class="reveal">
-        <h2>What's in the guide.</h2>
-        <ul class="includes">
-            <li>The baseline principle: start from zero and add back only what helps</li>
-            <li>Why willpower always fails, and the "decide once" system that replaces it</li>
-            <li>The neuroscience of content addiction, screen addiction, and comfort addiction</li>
-            <li>Exercise, nutrition, and supplement recommendations backed by research</li>
-            <li>The AMCC: the brain structure that physically grows when you do hard things</li>
-            <li>Why loneliness is equivalent to smoking 15 cigarettes a day</li>
-            <li>Why goals come last, not first</li>
-            <li>Every future update and revision, free, forever</li>
-        </ul>
-        <p>8,000 words. 30 minutes to read. You probably already know most of what is in here. <span class="emphasis">The value is in understanding why these things are so hard to do.</span> Once you understand the mechanism, the action becomes obvious.</p>
-    </section>
-
-    <!-- CTA -->
-    <div class="cta-section reveal">
-        <h2>Read it once. Come back whenever you need to.</h2>
-        <p>Free version is complete and actionable on its own.<br>Full version goes deeper into the science, philosophy, and practical detail.</p>
-        <div class="btn-group">
-            <a href="https://payhip.com/b/dj5g2" class="btn btn-primary">Full guide</a>
-            <a href="https://payhip.com/b/Alpez" class="btn btn-secondary">Free version</a>
+        <div class="dm-track dm-track-reverse">
+            <img src="/dms/IMG_6108.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6109.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6111.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6112.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6113.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6114.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6115.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6116.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6117.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6118.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6953.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_7074.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_7133.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_7202.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_8080.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_8567.jpg" alt="DM" loading="lazy">
+            <img src="/dms/IMG_6108.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6109.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6111.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6112.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6113.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6114.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6115.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6116.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6117.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6118.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6953.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_7074.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_7133.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_7202.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_8080.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_8567.jpg" alt="DM" loading="lazy">
         </div>
     </div>
-
-    <!-- About -->
-    <div class="about">
-        <p>24. Software engineer, Muay Thai fighter. I spent years wasted behind screens and figured my way out. 400+ videos, 1M+ views. Everything I make is built on one idea: start from nothing and only add back what actually helps.</p>
-    </div>
-
-    <footer>
-        &copy; 2026 Cameron. All rights reserved.
-    </footer>
-
 </div>
+
+<!-- ==================== THE PROBLEM ==================== -->
+<div class="section reveal">
+    <div class="container">
+        <p>You can feel it. Something's off. You wake up, scroll, work, scroll, sleep. You know you should be doing more but you can't make yourself do it.</p>
+        <p>You've tried the books, the habits, the routines. They work for two weeks and then you're back.</p>
+        <p>The voice in your head won't shut up. It tells you you're lazy, you're not good enough, you should be further along. <span class="emphasis">And the worst part is you believe it.</span></p>
+        <p>You're not broken. Your instincts are running software that's 300,000 years old in a world that's 50 years old. The anxiety, the restlessness, the feeling that something is wrong — <span class="emphasis">that's not a personal failing. That's a sane response to an insane environment.</span></p>
+    </div>
+</div>
+
+<!-- ==================== PULL QUOTE ==================== -->
+<div class="reveal">
+    <p class="pull-quote container">The problem was never what I was doing.<br>It was what I was feeling, and that I'd never learned how to feel it properly.</p>
+</div>
+
+<!-- ==================== VIDEO PLACEHOLDER ==================== -->
+<!-- Replace this with a YouTube embed or self-hosted MP4 of your best 30-60s clip -->
+<div class="container reveal">
+    <div class="video-placeholder">[ Video placeholder — embed your best clip here ]</div>
+</div>
+
+<!-- ==================== THREE THREADS ==================== -->
+<div class="section reveal">
+    <div class="container">
+        <h2>Three things nobody taught us.</h2>
+        <div class="threads">
+            <div class="thread">
+                <h3>The voice in your head is not you.</h3>
+                <p>It was given to you by a teacher, a parent, someone who didn't know better. You can learn to talk back to it. That alone changes everything.</p>
+            </div>
+            <div class="thread">
+                <h3>Your emotions are not the enemy.</h3>
+                <p>Fear and excitement are neurologically identical. Anger, when it flows without resistance, becomes clarity. The feelings you're avoiding are the ones you need most.</p>
+            </div>
+            <div class="thread">
+                <h3>Your body already knows what's wrong.</h3>
+                <p>All stress is held in your muscles. Come to your senses — literally. Your nervous system thinks you're being hunted. You're not. Breathe.</p>
+            </div>
+        </div>
+        <p style="text-align:center; margin-top:24px;">
+            <a href="https://www.skool.com/restoring-baseline-4494" class="btn btn-secondary">Explore this in the community — free</a>
+        </p>
+    </div>
+</div>
+
+<!-- ==================== TESTIMONIAL INTERLEAVE ==================== -->
+<!-- PLACEHOLDER: Replace with a real coaching client testimonial once available -->
+<div class="testimonial-interleave section-alt reveal">
+    <div class="container">
+        <blockquote>"[ Placeholder — first coaching client testimonial goes here. Name, age, city. Before/after audit score if available. ]"</blockquote>
+        <cite>— Name, age, city</cite>
+    </div>
+</div>
+
+<!-- ==================== COACHING ==================== -->
+<div class="section section-alt reveal">
+    <div class="container">
+        <h2>Work with me directly.</h2>
+        <p>8 weeks. One call a week. Async support between. I audit where you are, we figure out what's in the way, and we fix it in order.</p>
+        <p>This isn't motivational coaching. I don't tell you to "just start." I help you understand why you can't, and that understanding is what actually changes things.</p>
+
+        <div class="coaching-structure">
+            <div class="coaching-block">
+                <h4>Week 1</h4>
+                <p>Deep audit<br>60 min call</p>
+            </div>
+            <div class="coaching-block">
+                <h4>Weeks 2–7</h4>
+                <p>Weekly check-ins<br>30 min + async</p>
+            </div>
+            <div class="coaching-block">
+                <h4>Week 8</h4>
+                <p>Full review<br>60 min call</p>
+            </div>
+        </div>
+
+        <div class="price">£500</div>
+        <p class="price-note">Full 8-week programme. £62.50/week.</p>
+
+        <div class="qualifier">
+            <h3>This is for you if:</h3>
+            <ul>
+                <li>You know what to do but can't make yourself do it</li>
+                <li>You've never learned how to deal with what you're feeling — you just push through or shut it out</li>
+                <li>You want someone who's been there, not someone reading from a textbook</li>
+            </ul>
+        </div>
+
+        <div class="qualifier qualifier-not">
+            <h3>This is not for you if:</h3>
+            <ul>
+                <li>You want business or career coaching</li>
+                <li>You're looking for motivation, not understanding</li>
+                <li>You're not willing to be honest with yourself</li>
+            </ul>
+        </div>
+
+        <div style="text-align:center; margin-top:32px;">
+            <a href="/coaching" class="btn btn-primary">Talk to me — free screening call</a>
+            <p class="cta-micro">Takes 3 minutes. I read every application personally.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== ABOUT ==================== -->
+<div class="section reveal">
+    <div class="container">
+        <div class="about-content">
+            <!-- PLACEHOLDER: Replace this div with an <img src="/photo.jpg" class="about-photo" alt="Cameron"> -->
+            <div class="about-photo">[ Your photo here ]</div>
+            <div class="about-text">
+                <p>I'm Cameron. 24. Software engineer on £78K. Muay Thai fighter.</p>
+                <p>I sent 350 job applications after my Masters. I had 8 hours of screen time a day. I was vaping constantly. I looked fine from the outside and felt nothing on the inside.</p>
+                <p>I didn't fix it with a morning routine or a productivity app. I fixed it by learning how to feel things I'd been running from my whole life. The anger I was never allowed to express. The sadness I was told to man up about. The fear I pretended wasn't there.</p>
+                <p><span class="emphasis">I've made 431 videos about what I learned. 1.4 million people have watched them. Now I help people one-on-one.</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== EMAIL CAPTURE ==================== -->
+<div class="section section-alt reveal">
+    <div class="container" style="text-align:center;">
+        <h2>I write longer stuff too.</h2>
+        <p>Essays on the ideas behind the videos. Emotional work, masculinity, why you feel stuck, what actually helps. Free.</p>
+        <!-- PLACEHOLDER: Replace this form with a Beehiiv embed once set up -->
+        <form class="email-form" onsubmit="window.open('https://whamron.substack.com/subscribe?email=' + encodeURIComponent(this.email.value), '_blank'); return false;">
+            <input type="email" name="email" placeholder="Your email" required class="email-input">
+            <button type="submit" class="email-btn">I'm in</button>
+        </form>
+        <p class="email-note">No spam. Unsubscribe anytime.</p>
+    </div>
+</div>
+
+<!-- ==================== COMMUNITY + PODCAST ==================== -->
+<div class="section reveal">
+    <div class="container">
+        <div class="cards">
+            <div class="card">
+                <h3>Community</h3>
+                <p>Free for first 50 members. 10 modules on emotional work, weekly live calls, people actually doing the work. Then £29/month.</p>
+                <a href="https://www.skool.com/restoring-baseline-4494" class="btn btn-secondary">Join for free</a>
+            </div>
+            <div class="card">
+                <h3>Podcast</h3>
+                <p>Long-form conversations on the stuff that doesn't fit in 30 seconds. Spotify + YouTube.</p>
+                <!-- PLACEHOLDER: Update these links as new episodes drop -->
+                <a href="https://open.spotify.com/show/16E16W0ke5vGOVHZRQfRS4" class="btn btn-secondary">Listen</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+    <div class="container">
+        &copy; 2026 Restoring Baseline. All rights reserved.
+    </div>
+</footer>
 
 <script>
     // Scroll reveal
@@ -1010,58 +804,8 @@
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.15 });
-
+    }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
-
-    // Counter animation
-    const counters = document.querySelectorAll('.stat-num');
-    let counted = false;
-
-    function animateCounters() {
-        if (counted) return;
-        counted = true;
-        counters.forEach(counter => {
-            const target = parseInt(counter.dataset.target);
-            const suffix = counter.dataset.suffix || '+';
-            const duration = 1200;
-            const start = performance.now();
-
-            function update(now) {
-                const elapsed = now - start;
-                const progress = Math.min(elapsed / duration, 1);
-                const ease = 1 - Math.pow(1 - progress, 3);
-                const current = Math.floor(ease * target);
-                counter.textContent = current + (progress === 1 ? suffix : '');
-                if (progress < 1) requestAnimationFrame(update);
-            }
-            requestAnimationFrame(update);
-        });
-    }
-
-    // Trigger counters when stats section is visible
-    const statsEl = document.querySelector('.stats');
-    if (statsEl) {
-        const statsObserver = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                animateCounters();
-                statsObserver.unobserve(statsEl);
-            }
-        }, { threshold: 0.5 });
-        statsObserver.observe(statsEl);
-    }
-
-    // Tabs
-    var btns = document.querySelectorAll('.tab-btn');
-    var panels = document.querySelectorAll('.tab-panel');
-    for (var i = 0; i < btns.length; i++) {
-        btns[i].onclick = function() {
-            for (var j = 0; j < btns.length; j++) btns[j].classList.remove('active');
-            for (var j = 0; j < panels.length; j++) panels[j].classList.remove('active');
-            this.classList.add('active');
-            document.getElementById('tab-' + this.getAttribute('data-tab')).classList.add('active');
-        };
-    }
 </script>
 
 </body>
