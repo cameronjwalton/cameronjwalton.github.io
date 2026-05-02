@@ -83,6 +83,37 @@
         }
         .nav-links a:hover { color: var(--white); }
 
+        /* ---- HAMBURGER ---- */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            color: var(--text);
+        }
+        .nav-toggle svg { display: block; }
+
+        @media (max-width: 600px) {
+            .nav-toggle { display: block; }
+            .nav-inner { height: 48px; flex-wrap: nowrap; padding: 0 20px; }
+            .nav-brand { width: auto; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg);
+                border-bottom: 1px solid var(--border);
+                flex-direction: column;
+                padding: 16px 20px;
+                gap: 16px;
+            }
+            .nav-links.open { display: flex; }
+            .nav-links a { font-size: 0.9rem; }
+        }
+
         /* ---- PITCH ---- */
         .pitch { margin-bottom: 56px; }
 
@@ -338,6 +369,9 @@
 <nav class="nav">
     <div class="nav-inner">
         <a href="/" class="nav-brand"><img src="/img/logo.png?v=4" alt="Restoring Baseline" style="height:50px;vertical-align:middle;margin-right:8px;">Restoring Baseline</a>
+        <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
         <div class="nav-links">
             <a href="/story">My Story</a>
             <a href="https://www.skool.com/restoring-baseline-4494">Community</a>
