@@ -567,6 +567,150 @@
             font-size: 0.75rem;
         }
 
+        /* Social Proof Section */
+        .social-proof {
+            padding: 56px 0 48px;
+            border-top: 1px solid #141414;
+            overflow: hidden;
+        }
+
+        .social-proof-header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding: 0 24px;
+        }
+
+        .social-proof-header h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .proof-stats {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .proof-stat {
+            text-align: center;
+        }
+
+        .proof-stat-num {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            display: block;
+        }
+
+        .proof-stat-label {
+            font-size: 0.7rem;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Marquee carousel */
+        .dm-carousel {
+            position: relative;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+
+        .dm-carousel::before,
+        .dm-carousel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 80px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .dm-carousel::before {
+            left: 0;
+            background: linear-gradient(to right, #0a0a0a, transparent);
+        }
+
+        .dm-carousel::after {
+            right: 0;
+            background: linear-gradient(to left, #0a0a0a, transparent);
+        }
+
+        .dm-track {
+            display: flex;
+            gap: 16px;
+            animation: marquee 90s linear infinite;
+            width: max-content;
+        }
+
+        .dm-track:hover {
+            animation-play-state: paused;
+        }
+
+        .dm-track img {
+            height: 320px;
+            width: auto;
+            border-radius: 12px;
+            border: 1px solid #1e1e1e;
+            flex-shrink: 0;
+            opacity: 0.85;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .dm-track img:hover {
+            opacity: 1;
+            transform: scale(1.03);
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Second row scrolls opposite direction */
+        .dm-track-reverse {
+            animation: marquee-reverse 100s linear infinite;
+            margin-top: 16px;
+        }
+
+        @keyframes marquee-reverse {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        .proof-note {
+            text-align: center;
+            margin-top: 24px;
+            color: #444;
+            font-size: 0.8rem;
+            font-style: italic;
+            padding: 0 24px;
+        }
+
+        @media (max-width: 600px) {
+            .dm-track img {
+                height: 240px;
+            }
+
+            .proof-stats {
+                gap: 16px;
+            }
+
+            .proof-stat-num {
+                font-size: 1.1rem;
+            }
+
+            .dm-carousel::before,
+            .dm-carousel::after {
+                width: 40px;
+            }
+        }
+
         /* Mobile */
         @media (max-width: 600px) {
             .hero {
@@ -599,7 +743,7 @@
 
 <!-- Banner -->
 <div class="banner">
-    Restoring Baseline podcast is live.
+    Episode 2: Animals in Captivity is out now.
     <a href="https://open.spotify.com/show/16E16W0ke5vGOVHZRQfRS4" class="banner-link">Spotify</a>
     ·
     <a href="https://youtu.be/-3kikGQShWo" class="banner-link">YouTube</a>
@@ -689,6 +833,108 @@
 
     <div class="reveal">
         <p class="pull-quote">Animals in captivity. By our own design.</p>
+    </div>
+
+    <!-- Social Proof -->
+    <div class="social-proof reveal">
+        <div class="social-proof-header">
+            <div class="proof-stats">
+                <div class="proof-stat">
+                    <span class="proof-stat-num">1,600+</span>
+                    <span class="proof-stat-label">Comments</span>
+                </div>
+                <div class="proof-stat">
+                    <span class="proof-stat-num">29,000+</span>
+                    <span class="proof-stat-label">Saves</span>
+                </div>
+                <div class="proof-stat">
+                    <span class="proof-stat-num">1.4M+</span>
+                    <span class="proof-stat-label">Views</span>
+                </div>
+                <div class="proof-stat">
+                    <span class="proof-stat-num">121K+</span>
+                    <span class="proof-stat-label">Likes</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="dm-carousel">
+            <div class="dm-track">
+                <!-- First set -->
+                <img src="/dms/IMG_6092.jpg" alt="DM: Your page is a gold mine brother" loading="lazy">
+                <img src="/dms/IMG_6093.jpg" alt="DM: Some of your videos have pulled me back together" loading="lazy">
+                <img src="/dms/IMG_6094.jpg" alt="DM: Your content is literally BTC in 2009" loading="lazy">
+                <img src="/dms/IMG_6095.jpg" alt="DM: I appreciate your content and have found it very useful" loading="lazy">
+                <img src="/dms/IMG_6096.jpg" alt="DM: You're gonna go places bro" loading="lazy">
+                <img src="/dms/IMG_6097.jpg" alt="DM: Your page is a hidden gem" loading="lazy">
+                <img src="/dms/IMG_6098.jpg" alt="DM: Thanks for doing what you're doing" loading="lazy">
+                <img src="/dms/IMG_6099.jpg" alt="DM: I always stop scrolling when I see one of your reels" loading="lazy">
+                <img src="/dms/IMG_6100.jpg" alt="DM: You are the only person on instagram who speaks actual facts" loading="lazy">
+                <img src="/dms/IMG_6101.jpg" alt="DM: One of the few accounts that gives genuinely insightful insights" loading="lazy">
+                <img src="/dms/IMG_6102.jpg" alt="DM: It's changing my life in ways you couldn't imagine" loading="lazy">
+                <img src="/dms/IMG_6103.jpg" alt="DM: I love your content, it's really inspirational" loading="lazy">
+                <img src="/dms/IMG_6104.jpg" alt="DM: Deep philosophical truths compressed into a short video" loading="lazy">
+                <img src="/dms/IMG_6105.jpg" alt="DM: Your advice is always on point" loading="lazy">
+                <img src="/dms/IMG_6106.jpg" alt="DM: Your videos are incredible" loading="lazy">
+                <img src="/dms/IMG_6107.jpg" alt="DM: Your videos are great, you're going to blow up" loading="lazy">
+                <!-- Duplicate set for seamless loop -->
+                <img src="/dms/IMG_6092.jpg" alt="DM: Your page is a gold mine brother" loading="lazy">
+                <img src="/dms/IMG_6093.jpg" alt="DM: Some of your videos have pulled me back together" loading="lazy">
+                <img src="/dms/IMG_6094.jpg" alt="DM: Your content is literally BTC in 2009" loading="lazy">
+                <img src="/dms/IMG_6095.jpg" alt="DM: I appreciate your content and have found it very useful" loading="lazy">
+                <img src="/dms/IMG_6096.jpg" alt="DM: You're gonna go places bro" loading="lazy">
+                <img src="/dms/IMG_6097.jpg" alt="DM: Your page is a hidden gem" loading="lazy">
+                <img src="/dms/IMG_6098.jpg" alt="DM: Thanks for doing what you're doing" loading="lazy">
+                <img src="/dms/IMG_6099.jpg" alt="DM: I always stop scrolling when I see one of your reels" loading="lazy">
+                <img src="/dms/IMG_6100.jpg" alt="DM: You are the only person on instagram who speaks actual facts" loading="lazy">
+                <img src="/dms/IMG_6101.jpg" alt="DM: One of the few accounts that gives genuinely insightful insights" loading="lazy">
+                <img src="/dms/IMG_6102.jpg" alt="DM: It's changing my life in ways you couldn't imagine" loading="lazy">
+                <img src="/dms/IMG_6103.jpg" alt="DM: I love your content, it's really inspirational" loading="lazy">
+                <img src="/dms/IMG_6104.jpg" alt="DM: Deep philosophical truths compressed into a short video" loading="lazy">
+                <img src="/dms/IMG_6105.jpg" alt="DM: Your advice is always on point" loading="lazy">
+                <img src="/dms/IMG_6106.jpg" alt="DM: Your videos are incredible" loading="lazy">
+                <img src="/dms/IMG_6107.jpg" alt="DM: Your videos are great, you're going to blow up" loading="lazy">
+            </div>
+
+            <div class="dm-track dm-track-reverse">
+                <!-- Second set (remaining DMs) -->
+                <img src="/dms/IMG_6108.jpg" alt="DM: You are honestly changing my life subtly every day" loading="lazy">
+                <img src="/dms/IMG_6109.jpg" alt="DM: No BS straight up honest advice and reality checks" loading="lazy">
+                <img src="/dms/IMG_6111.jpg" alt="DM: Insanely good content. In all this noise, you make sense" loading="lazy">
+                <img src="/dms/IMG_6112.jpg" alt="DM: I really like your vids" loading="lazy">
+                <img src="/dms/IMG_6113.jpg" alt="DM: Best content on here right now" loading="lazy">
+                <img src="/dms/IMG_6114.jpg" alt="DM: You're gonna get big pretty soon" loading="lazy">
+                <img src="/dms/IMG_6115.jpg" alt="DM: The videos are very insightful" loading="lazy">
+                <img src="/dms/IMG_6116.jpg" alt="DM: I've never been able to articulate this so well like you did" loading="lazy">
+                <img src="/dms/IMG_6117.jpg" alt="DM: The content is fire" loading="lazy">
+                <img src="/dms/IMG_6118.jpg" alt="DM: It's taken me to unimaginable places" loading="lazy">
+                <img src="/dms/IMG_6953.jpg" alt="DM: Big fan of the content, fellow software engineer" loading="lazy">
+                <img src="/dms/IMG_7074.jpg" alt="DM: It's genuinely opened my eyes to so much" loading="lazy">
+                <img src="/dms/IMG_7133.jpg" alt="DM: Your content is great and I resonate with it so much" loading="lazy">
+                <img src="/dms/IMG_7202.jpg" alt="DM: Your videos are really helping me navigate a difficult transition" loading="lazy">
+                <img src="/dms/IMG_8080.jpg" alt="DM: It's made me realise I need to actually get up and do something" loading="lazy">
+                <img src="/dms/IMG_8567.jpg" alt="DM: Some of your videos have pulled me back together" loading="lazy">
+                <!-- Duplicate set for seamless loop -->
+                <img src="/dms/IMG_6108.jpg" alt="DM: You are honestly changing my life subtly every day" loading="lazy">
+                <img src="/dms/IMG_6109.jpg" alt="DM: No BS straight up honest advice and reality checks" loading="lazy">
+                <img src="/dms/IMG_6111.jpg" alt="DM: Insanely good content. In all this noise, you make sense" loading="lazy">
+                <img src="/dms/IMG_6112.jpg" alt="DM: I really like your vids" loading="lazy">
+                <img src="/dms/IMG_6113.jpg" alt="DM: Best content on here right now" loading="lazy">
+                <img src="/dms/IMG_6114.jpg" alt="DM: You're gonna get big pretty soon" loading="lazy">
+                <img src="/dms/IMG_6115.jpg" alt="DM: The videos are very insightful" loading="lazy">
+                <img src="/dms/IMG_6116.jpg" alt="DM: I've never been able to articulate this so well like you did" loading="lazy">
+                <img src="/dms/IMG_6117.jpg" alt="DM: The content is fire" loading="lazy">
+                <img src="/dms/IMG_6118.jpg" alt="DM: It's taken me to unimaginable places" loading="lazy">
+                <img src="/dms/IMG_6953.jpg" alt="DM: Big fan of the content, fellow software engineer" loading="lazy">
+                <img src="/dms/IMG_7074.jpg" alt="DM: It's genuinely opened my eyes to so much" loading="lazy">
+                <img src="/dms/IMG_7133.jpg" alt="DM: Your content is great and I resonate with it so much" loading="lazy">
+                <img src="/dms/IMG_7202.jpg" alt="DM: Your videos are really helping me navigate a difficult transition" loading="lazy">
+                <img src="/dms/IMG_8080.jpg" alt="DM: It's made me realise I need to actually get up and do something" loading="lazy">
+                <img src="/dms/IMG_8567.jpg" alt="DM: Some of your videos have pulled me back together" loading="lazy">
+            </div>
+        </div>
+
+
     </div>
 
     <!-- Framework -->
