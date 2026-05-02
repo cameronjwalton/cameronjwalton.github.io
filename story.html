@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Story · Restoring Baseline</title>
+    <meta name="description" content="I grew up glued to my phone, terrified of women, confrontation, and the future. Here's how I got out and why I'm helping others do the same.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #fafafa;
+            --bg-alt: #f0f0f0;
+            --bg-card: #ffffff;
+            --text: #1a1a1a;
+            --text-secondary: #555555;
+            --text-muted: #999999;
+            --white: #1a1a1a;
+            --accent: #FFD700;
+            --border: #e0e0e0;
+            --max-w: 620px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.75;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 64px 24px;
+        }
+
+        /* ---- BANNER ---- */
+        .banner {
+            display: block; text-align: center; padding: 10px 24px;
+            background: #1DB954; color: #000; font-size: 0.8rem; font-weight: 600;
+            text-decoration: none; transition: background 0.3s;
+        }
+        .banner a.banner-link { color: #000; text-decoration: underline; font-weight: 700; }
+        .banner a.banner-link:hover { opacity: 0.8; }
+
+        /* ---- NAV ---- */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text);
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+        .nav-links a {
+            font-size: 0.8rem;
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--white); }
+
+        /* ---- STORY ---- */
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .story p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.85;
+            margin-bottom: 20px;
+        }
+
+        .story p strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .story .cta-section {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary { background: var(--accent); color: #000; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 24px rgba(255,215,0,0.35); }
+
+        .btn-secondary { background: transparent; color: var(--text-secondary); border: 1px solid var(--border); margin-left: 12px; }
+        .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 32px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .back-link:hover { color: var(--text-secondary); }
+
+        @media (max-width: 600px) {
+            .container { padding: 40px 20px; }
+            h1 { font-size: 1.6rem; }
+            .btn-secondary { margin-left: 0; margin-top: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== BANNER ==================== -->
+<div class="banner">Restoring Baseline podcast is out now! Listen on <a href="https://www.youtube.com/@whamron_yt" class="banner-link">YouTube</a> or <a href="https://open.spotify.com/show/16E16W0ke5vGOVHZRQfRS4" class="banner-link">Spotify</a></div>
+
+<!-- ==================== NAV ==================== -->
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="/" class="nav-brand">Restoring Baseline</a>
+        <div class="nav-links">
+            <a href="https://www.skool.com/restoring-baseline-4494">Community</a>
+            <a href="/coaching">Coaching</a>
+            <a href="https://open.spotify.com/show/16E16W0ke5vGOVHZRQfRS4">Podcast</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="story">
+        <h1>My Story</h1>
+
+        <p>I grew up the same way most lads my age did. Glued to my phone, gaming until 3am, watching stuff that made me feel worse about myself and doing it again the next night. I was terrified of women, terrified of confrontation, terrified of being honest about how I actually felt about anything. I had no real plan for the future and I was convinced I was wasting my life, and everything online seemed to agree with me.</p>
+
+        <p>After my Masters in engineering I sent about 350 job applications. Mass applying from my bed, 8 hours of screen time a day, vaping constantly. I had the degree, I had the gym routine, I could hold a conversation. But I felt flat all the time and I didn't really understand why.</p>
+
+        <p>I tried all the self-improvement stuff. Morning routines, cold showers, journaling, reading the books everyone tells you to read. Some of it helped for a week or two and then I'd be right back where I started. And every time something didn't stick I'd feel worse because now it wasn't just the original problem, it was the fact that I couldn't even fix it properly.</p>
+
+        <p>The thing that actually changed wasn't a new routine or a productivity system. I started looking into why I felt nothing. Not what to do about it, but the actual reason underneath. I started reading about neuroscience, about how the nervous system works, about what stress actually is and why we can't just think our way out of it. And at the same time I found the same ideas showing up in places I wasn't expecting. Stoic philosophy, Tibetan Buddhism, Greek mythology, Jung. The same truths kept appearing across thousands of years of human experience and most of us were trying to learn them from a 60-second TikTok.</p>
+
+        <p>The biggest thing I learned was about the voice in your head. That critical voice that tells you you're lazy, you're not good enough, you're falling behind. It's not yours. It was passed to you as a child when you learned how to talk to yourself, and you've been obeying it like it's the truth ever since. I traced mine back to specific teachers and moments and once I could hear it as something separate from me, everything started to shift.</p>
+
+        <p>I started training Muay Thai and that taught me something about fear I couldn't have learned any other way. Walking to the ring terrified, every single time, and realising that if you feel the fear deeply enough you notice it's identical to excitement. Mike Tyson said the same thing. So did the samurai. Fear isn't the enemy, running from it is.</p>
+
+        <p>I started making videos because I couldn't find anyone saying this stuff the way I needed to hear it when I was 19. Not the guru on a mountain telling you to meditate. Not the hustle bro telling you to grind harder. Just someone who'd actually been stuck in the same way and could explain what helped in plain language, backed by the science and the ancient wisdom that's been saying the same thing for thousands of years.</p>
+
+        <p>431 videos later, 1.4 million views, and the DMs I get every day from people going through exactly what I went through are the reason I keep doing it.</p>
+
+        <p>I'm not a guru and I'm not pretending to have it all figured out. I'm 24. I'm a software engineer with a full-time job. I train Muay Thai. I'm just someone who's been down the same holes you're stuck in and I've found things that actually work, not because I invented them but because they've been working for thousands of years and nobody told us.</p>
+
+        <p>I started coaching because people kept asking me to. And it turns out the one-on-one work, where you can actually go deep with someone and help them see what's going on underneath, is where the real changes happen. I built the Restoring Baseline community because not everyone can do one-on-one work and I wanted somewhere people could access the modules, the live calls, and direct messaging with me for free.</p>
+
+        <p>I'm right at the very start of all this. The podcast is new, the community is new, the coaching is new. But the ideas aren't new at all and I'm not pulling the ladder up behind me.</p>
+
+        <div class="cta-section">
+            <a href="/coaching" class="btn btn-primary">Talk to me</a>
+            <a href="https://www.skool.com/restoring-baseline-4494" class="btn btn-secondary">Join the community</a>
+        </div>
+    </div>
+
+    <a href="/" class="back-link">← Back to home</a>
+
+</div>
+
+</body>
+</html>

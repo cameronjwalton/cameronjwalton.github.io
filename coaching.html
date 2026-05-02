@@ -35,6 +35,52 @@
             padding: 64px 24px;
         }
 
+        /* ---- BANNER ---- */
+        .banner {
+            display: block; text-align: center; padding: 10px 24px;
+            background: #1DB954; color: #000; font-size: 0.8rem; font-weight: 600;
+            text-decoration: none; transition: background 0.3s;
+        }
+        .banner a.banner-link { color: #000; text-decoration: underline; font-weight: 700; }
+        .banner a.banner-link:hover { opacity: 0.8; }
+
+        /* ---- NAV ---- */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text);
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+        .nav-links a {
+            font-size: 0.8rem;
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--white); }
+
         /* ---- PITCH ---- */
         .pitch { margin-bottom: 56px; }
 
@@ -283,6 +329,21 @@
 </head>
 <body>
 
+<!-- ==================== BANNER ==================== -->
+<div class="banner">Restoring Baseline podcast is out now! Listen on <a href="https://www.youtube.com/@whamron_yt" class="banner-link">YouTube</a> or <a href="https://open.spotify.com/show/16E16W0ke5vGOVHZRQfRS4" class="banner-link">Spotify</a></div>
+
+<!-- ==================== NAV ==================== -->
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="/" class="nav-brand">Restoring Baseline</a>
+        <div class="nav-links">
+            <a href="https://www.skool.com/restoring-baseline-4494">Community</a>
+            <a href="/coaching">Coaching</a>
+            <a href="https://open.spotify.com/show/16E16W0ke5vGOVHZRQfRS4">Podcast</a>
+        </div>
+    </div>
+</nav>
+
 <div class="container">
 
     <!-- PITCH -->
@@ -399,7 +460,7 @@
     </div>
 
     <!-- BACK -->
-    <a href="/" class="back-link">← restoringbaseline</a>
+    <a href="/" class="back-link">← Back to home</a>
 
 </div>
 
