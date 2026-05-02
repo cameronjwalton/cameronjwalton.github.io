@@ -401,6 +401,12 @@
         .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
 
+        /* ---- TABLET ---- */
+        @media (max-width: 860px) {
+            .tiers-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+            .tier-top { order: -1; }
+        }
+
         /* ---- MOBILE ---- */
         @media (max-width: 600px) {
             .video-hero { padding: 32px 16px 0; }
@@ -413,8 +419,6 @@
             .tiers, .about { padding: 56px 0; }
             .container { padding: 0 20px; }
 
-            .tiers-grid { grid-template-columns: 1fr; }
-            .tier-top { order: -1; }
             .about-grid { grid-template-columns: 1fr; }
             .about-photo-slot { max-width: 180px; margin: 0 auto; }
 
