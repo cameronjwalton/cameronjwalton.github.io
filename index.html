@@ -68,17 +68,6 @@
             margin-bottom: 56px;
         }
 
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 28px;
-        }
-
-        .hero-stat { text-align: center; }
-        .hero-stat-num { font-size: 1.5rem; font-weight: 700; color: var(--accent); display: block; }
-        .hero-stat-label { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; }
-
         .socials { display: flex; gap: 10px; justify-content: center; }
 
         .socials a {
@@ -114,29 +103,22 @@
         .btn-secondary:hover { border-color: #444; color: var(--white); }
 
         /* ---- DM CAROUSEL ---- */
-        .social-proof { padding: 48px 0 40px; overflow: hidden; }
-
-        .proof-stats { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; margin-bottom: 28px; padding: 0 24px; }
-        .proof-stat { text-align: center; }
-        .proof-stat-num { font-size: 1.2rem; font-weight: 700; color: var(--accent); display: block; }
-        .proof-stat-label { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; }
+        .social-proof { padding: 24px 0; overflow: hidden; }
 
         .dm-carousel { position: relative; width: 100vw; margin-left: calc(-50vw + 50%); }
 
         .dm-carousel::before, .dm-carousel::after {
-            content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
+            content: ''; position: absolute; top: 0; bottom: 0; width: 60px; z-index: 2; pointer-events: none;
         }
         .dm-carousel::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
         .dm-carousel::after { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
 
-        .dm-track { display: flex; gap: 14px; animation: marquee 90s linear infinite; width: max-content; }
+        .dm-track { display: flex; gap: 8px; animation: marquee 120s linear infinite; width: max-content; }
         .dm-track:hover { animation-play-state: paused; }
-        .dm-track img { height: 280px; width: auto; border-radius: 12px; border: 1px solid var(--border); flex-shrink: 0; opacity: 0.8; transition: opacity 0.3s; }
+        .dm-track img { height: 95px; width: auto; border-radius: 6px; border: 1px solid var(--border); flex-shrink: 0; opacity: 0.7; transition: opacity 0.3s; }
         .dm-track img:hover { opacity: 1; }
 
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .dm-track-reverse { animation: marquee-reverse 100s linear infinite; margin-top: 14px; }
-        @keyframes marquee-reverse { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
 
         /* ---- DIVIDER ---- */
         .divider { width: 48px; height: 1px; background: #222; margin: 0 auto; }
@@ -216,8 +198,6 @@
         .about-photo-slot {
             width: 100%; aspect-ratio: 3/4; background: var(--bg-card);
             border: 1px solid var(--border); border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            color: var(--text-muted); font-size: 0.7rem; text-align: center; padding: 12px;
         }
 
         .about-text p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 14px; }
@@ -317,8 +297,8 @@
             .about-grid { grid-template-columns: 1fr; }
             .about-photo-slot { max-width: 180px; margin: 0 auto; }
 
-            .dm-track img { height: 220px; }
-            .dm-carousel::before, .dm-carousel::after { width: 40px; }
+            .dm-track img { height: 70px; }
+            .dm-carousel::before, .dm-carousel::after { width: 30px; }
             .pull-quote { font-size: 1.2rem; padding: 40px 20px; }
             .email-form { flex-direction: column; }
 
@@ -338,11 +318,6 @@
             <a href="/coaching" class="btn btn-primary">Talk to me</a>
             <a href="https://www.skool.com/restoring-baseline-4494" class="btn btn-secondary">Join the community — free</a>
         </div>
-        <div class="hero-stats">
-            <div class="hero-stat"><span class="hero-stat-num">1.4M+</span><span class="hero-stat-label">Views</span></div>
-            <div class="hero-stat"><span class="hero-stat-num">431</span><span class="hero-stat-label">Videos</span></div>
-            <div class="hero-stat"><span class="hero-stat-num">3</span><span class="hero-stat-label">Platforms</span></div>
-        </div>
         <div class="socials">
             <a href="https://www.tiktok.com/@whamron" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78c.27 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.3 6.34 6.34 0 0 0 9.49 21.6a6.34 6.34 0 0 0 6.34-6.34V8.7a8.16 8.16 0 0 0 3.76.92V6.69Z"/></svg></a>
             <a href="https://www.youtube.com/@whamron_yt" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 0 0 .5 6.19 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.81ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg></a>
@@ -354,21 +329,11 @@
 </div>
 
 <!-- ==================== DM CAROUSEL ==================== -->
-<div class="social-proof reveal">
-    <div class="proof-stats">
-        <div class="proof-stat"><span class="proof-stat-num">1,600+</span><span class="proof-stat-label">Comments</span></div>
-        <div class="proof-stat"><span class="proof-stat-num">29,000+</span><span class="proof-stat-label">Saves</span></div>
-        <div class="proof-stat"><span class="proof-stat-num">1.4M+</span><span class="proof-stat-label">Views</span></div>
-        <div class="proof-stat"><span class="proof-stat-num">121K+</span><span class="proof-stat-label">Likes</span></div>
-    </div>
+<div class="social-proof">
     <div class="dm-carousel">
         <div class="dm-track">
-            <img src="/dms/IMG_6092.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6093.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6094.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6095.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6096.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6097.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6098.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6099.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6100.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6101.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6102.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6103.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6104.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6105.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6106.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6107.jpg" alt="DM" loading="lazy">
-            <img src="/dms/IMG_6092.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6093.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6094.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6095.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6096.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6097.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6098.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6099.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6100.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6101.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6102.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6103.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6104.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6105.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6106.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6107.jpg" alt="DM" loading="lazy">
-        </div>
-        <div class="dm-track dm-track-reverse">
-            <img src="/dms/IMG_6108.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6109.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6111.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6112.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6113.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6114.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6115.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6116.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6117.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6118.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6953.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_7074.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_7133.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_7202.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_8080.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_8567.jpg" alt="DM" loading="lazy">
-            <img src="/dms/IMG_6108.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6109.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6111.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6112.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6113.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6114.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6115.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6116.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6117.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6118.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6953.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_7074.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_7133.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_7202.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_8080.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_8567.jpg" alt="DM" loading="lazy">
+            <img src="/dms/IMG_6092.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6093.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6094.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6095.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6096.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6097.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6098.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6099.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6100.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6101.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6102.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6103.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6104.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6105.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6106.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6107.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6108.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6109.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6111.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6112.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6113.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6114.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6115.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6116.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6117.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6118.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6953.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_7074.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_7133.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_7202.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_8080.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_8567.jpg" alt="DM" loading="lazy">
+            <img src="/dms/IMG_6092.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6093.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6094.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6095.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6096.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6097.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6098.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6099.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6100.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6101.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6102.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6103.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6104.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6105.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6106.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6107.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6108.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6109.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6111.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6112.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6113.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6114.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6115.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6116.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6117.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6118.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_6953.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_7074.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_7133.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_7202.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_8080.jpg" alt="DM" loading="lazy"><img src="/dms/IMG_8567.jpg" alt="DM" loading="lazy">
         </div>
     </div>
 </div>
@@ -458,8 +423,8 @@
 <div class="about reveal">
     <div class="container">
         <div class="about-grid">
-            <!-- PLACEHOLDER: Replace with <img src="/photo.jpg" class="about-photo-slot" alt="Cameron" style="object-fit:cover;"> -->
-            <div class="about-photo-slot">[ photo ]</div>
+            <!-- Replace with <img src="/photo.jpg" alt="Cameron" style="width:100%;border-radius:12px;object-fit:cover;aspect-ratio:3/4;"> -->
+            <div class="about-photo-slot"></div>
             <div class="about-text">
                 <p><span class="emphasis">I'm Cameron. 24. Software engineer. Muay Thai fighter.</span></p>
                 <p>I sent 350 job applications after my Masters. 8 hours of screen time a day. Vaping constantly. Looked fine from the outside, felt nothing on the inside.</p>
