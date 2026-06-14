@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <title>1:1 Coaching · Restoring Baseline</title>
-    <meta name="description" content="6 weeks of 1:1 coaching with a money-back guarantee. We set your goals in the first call — hit them or your money back. Apply now.">
+    <title>The Baseline Reset · 1:1 Mentorship · Restoring Baseline</title>
+    <meta name="description" content="The Baseline Reset: 6 weeks of 1:1 mentorship with a money-back guarantee. We set your goals in the first session — hit them or your money back. Apply now.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -116,6 +116,7 @@
 
         /* ---- PITCH ---- */
         .pitch { margin-bottom: 56px; }
+        .pitch-eyebrow { font-size: 0.8rem !important; text-transform: uppercase; letter-spacing: 2px; color: var(--text-secondary) !important; font-weight: 600; margin: 8px 0 18px !important; }
 
         .pitch h1 {
             font-size: 2rem;
@@ -388,6 +389,26 @@
         .guarantee p { color: rgba(255,255,255,0.78); font-size: 0.98rem; max-width: 460px; margin: 0 auto 10px; }
         .guarantee .conditions { font-size: 0.82rem; color: rgba(255,255,255,0.55); margin-top: 16px; }
 
+        /* ---- OFFER BOX (guarantee-led value stack) ---- */
+        .offer-box { border: 2px solid var(--text); border-radius: 16px; overflow: hidden; margin-bottom: 48px; }
+        .offer-guarantee { background: var(--text); color: #fff; text-align: center; padding: 32px 26px; }
+        .offer-guarantee .badge {
+            display: inline-block; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+            color: var(--accent); border: 1px solid rgba(255,215,0,0.4); border-radius: 99px; padding: 5px 14px; margin-bottom: 16px;
+        }
+        .offer-guarantee h2 { color: #fff; font-size: 1.9rem; line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 12px; }
+        .offer-guarantee p { color: rgba(255,255,255,0.8); font-size: 0.95rem; max-width: 440px; margin: 0 auto; }
+        .offer-included { padding: 28px 26px 32px; }
+        .offer-included h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin-bottom: 16px; }
+        .offer-included ul { list-style: none; margin: 0 0 24px; padding: 0; }
+        .offer-included li { position: relative; padding: 10px 0 10px 30px; border-bottom: 1px solid var(--border); font-size: 0.97rem; }
+        .offer-included li:last-child { border-bottom: none; }
+        .offer-included li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+        .offer-price { text-align: center; font-size: 2.4rem; font-weight: 700; color: var(--white); letter-spacing: -1px; }
+        .offer-price span { display: block; font-size: 0.85rem; font-weight: 400; color: var(--text-muted); letter-spacing: 0; margin-top: 2px; }
+        .offer-scarcity { margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--border); font-size: 0.88rem; color: var(--text-secondary); text-align: center; line-height: 1.55; }
+        .offer-scarcity strong { color: var(--white); }
+
         /* ---- HOW IT WORKS ---- */
         .how { margin-bottom: 48px; }
         .how h2 { margin-bottom: 24px; }
@@ -427,30 +448,30 @@
 
     <!-- PITCH -->
     <div class="pitch">
-        <h1>1:1 Coaching</h1>
+        <h1>The Baseline Reset</h1>
+        <p class="pitch-eyebrow">1:1 mentorship · 6 weeks · money-back guarantee</p>
         <p>Most people who come to me already know what they should be doing. They've watched the videos, they've tried the routines, and none of it stuck because the problem was never information. It's emotional. I blend neuroscience with ancient wisdom to help you understand what's actually going on underneath, and once you see it, everything changes.</p>
+        <p>My job is to listen, work out how you really feel, and offer reframes and concrete, maintainable habits that make life more enjoyable, not another rigid routine you'll abandon in a week.</p>
     </div>
 
-    <!-- GUARANTEE -->
-    <div class="guarantee">
-        <span class="badge">The guarantee</span>
-        <h2>Hit your goals, or your money back.</h2>
-        <p>In our first call we agree on specific, measurable goals for the six weeks. If you do everything we commit to and we don't hit them, you get a full refund. That's how confident I am in this.</p>
-        <p class="conditions">The only condition: you complete the actions we agree on and show up to the calls. Do the work, and the risk is entirely mine.</p>
-    </div>
-
-    <!-- WHAT YOU GET -->
-    <div class="card">
-        <h2>What you get</h2>
-        <ul>
-            <li>A screening call first, to make sure we're the right fit</li>
-            <li>Session 1: we set your goals together — 60 min call</li>
-            <li>Weeks 2–5: weekly check-ins — 30 min + async support</li>
-            <li>Week 6: full review against your goals — 60 min call</li>
-            <li>Voice note support between calls</li>
-            <li>1:1 messaging with me</li>
-            <li>A full refund if we don't hit the goals we set</li>
-        </ul>
+    <!-- OFFER (guarantee-led value stack) -->
+    <div class="offer-box">
+        <div class="offer-guarantee">
+            <span class="badge">Zero risk</span>
+            <h2>Hit your goals, or your money back.</h2>
+            <p>We agree your goals in the first session. Do the work, and if we don't hit them by week six, you get a full refund. That's how confident I am in this.</p>
+        </div>
+        <div class="offer-included">
+            <h3>What's included</h3>
+            <ul>
+                <li>A free screening call to make sure I can actually help</li>
+                <li>6 one-to-one mentoring sessions over 6 weeks — the first to set your goals, the last to review them</li>
+                <li>Unlimited voice-note and message support between every session</li>
+                <li>Full community access — all 10 modules and weekly live calls</li>
+            </ul>
+            <div class="offer-price">£500<span>for the 6 weeks, fully refundable if we don't hit your goals</span></div>
+            <p class="offer-scarcity">I only take <strong>4 one-to-one clients at a time</strong> so everyone gets my full attention. With thousands of new followers every month and demand climbing fast, £500 is the cheapest this will ever be.</p>
+        </div>
     </div>
 
     <!-- HOW IT WORKS -->
@@ -462,7 +483,7 @@
         </div>
         <div class="step-row">
             <div class="num">2</div>
-            <div class="step-text"><h3>Screening call</h3><p>A short, no-pressure conversation to make sure I can actually help you. If I can't, I'll tell you.</p></div>
+            <div class="step-text"><h3>Screening call</h3><p>A short, no-pressure conversation, and most people feel a shift straight away. Just saying out loud what's actually wrong and what you want is often enough to start it. My job is to listen, work out how you really feel, and if I can't help you, I'll tell you.</p></div>
         </div>
         <div class="step-row">
             <div class="num">3</div>
@@ -499,13 +520,6 @@
                 <li>You want someone to tell you what to do without understanding why you can't</li>
             </ul>
         </div>
-    </div>
-
-    <!-- PRICE -->
-    <div class="price-block">
-        <div class="price-amount">£500</div>
-        <div class="price-detail">6 weeks · money-back guarantee</div>
-        <div class="price-weekly">£83/week — refunded in full if we don't hit your goals</div>
     </div>
 
     <!-- FORM -->

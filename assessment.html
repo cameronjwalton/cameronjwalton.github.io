@@ -125,6 +125,9 @@
         .pillar-row .name { width: 120px; flex-shrink: 0; color: var(--text-secondary); }
         .pillar-row .track { flex: 1; height: 8px; background: var(--bg-alt); border-radius: 99px; overflow: hidden; }
         .pillar-row .bar { height: 100%; background: var(--accent); border-radius: 99px; }
+        .guide-callout { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 12px; padding: 22px; margin-bottom: 28px; text-align: center; }
+        .guide-callout p { font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.5; }
+        .guide-callout strong { color: var(--text); }
         .result-ctas { display: flex; flex-direction: column; gap: 12px; max-width: 360px; margin: 0 auto; }
 
         footer { border-top: 1px solid var(--border); padding: 40px 24px; text-align: center; }
@@ -185,7 +188,7 @@
     <div class="step capture" id="capture">
         <div class="q-pillar">Last step</div>
         <h2>Where should I send your result?</h2>
-        <p>Your Baseline Score and a breakdown of where you stand are ready. Tell me where to send it, and I'll include the one thing I'd focus on first if I were you.</p>
+        <p>Your Baseline Score and a breakdown of where you stand are ready. Tell me where to send it, plus my full 8,000-word guide, free, and I'll show you the one thing I'd focus on first if I were you.</p>
         <form id="captureForm">
             <div class="field">
                 <label for="name">First name</label>
@@ -210,6 +213,11 @@
         <div class="pillar-bars" id="pillarBars"></div>
 
         <div class="result-body" id="resultBody"></div>
+
+        <div class="guide-callout">
+            <p>🎁 As promised, your free <strong>8,000-word guide</strong> is on its way to your inbox, everything I've learned about emotional work, neuroscience, and feeling alive again. Grab it right now too:</p>
+            <a href="/guide.pdf" target="_blank" rel="noopener" class="btn btn-secondary">Download the free guide</a>
+        </div>
 
         <div class="result-ctas" id="resultCtas"></div>
     </div>
@@ -415,7 +423,7 @@ function renderResult(name, score, band, pScores) {
         '<h3>What I\'d do next</h3><p>' + band.next + '</p>';
 
     // CTAs — coaching primary for lower bands, community primary for higher
-    const coaching = '<a href="/coaching" class="btn btn-primary">Apply for 1:1 coaching →</a>';
+    const coaching = '<a href="/coaching" class="btn btn-primary">Apply for the Baseline Reset →</a>';
     const community = '<a href="https://www.skool.com/restoring-baseline-4494" class="btn btn-secondary">Join the free community</a>';
     const ctas = score >= 25 ? [community, coaching] : [coaching, community];
     document.getElementById('resultCtas').innerHTML = ctas.join('');

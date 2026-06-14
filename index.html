@@ -513,14 +513,14 @@
 <!-- ==================== VIDEO HERO ==================== -->
 <div class="video-hero" style="padding:0;margin:0 auto 28px;max-width:620px;">
     <div class="video-wrap">
-        <video autoplay muted playsinline preload="auto" controls>
+        <video controls playsinline preload="none" poster="/hero-poster.jpg">
             <source src="/hero.mp4" type="video/mp4">
         </video>
     </div>
 </div>
 
         <h1>You know exactly what to do and you still can't make yourself do it.</h1>
-        <p class="subtitle">Neuroscience meets ancient wisdom. For people ready to feel alive, and enjoy it.</p>
+        <p class="subtitle">I help young men break the cycle of avoidance and screen-numbness, combining neuroscience with ancient wisdom and philosophy, so they feel alive again instead of just getting through the day.</p>
         <div class="hero-ctas">
             <a href="/assessment" class="btn btn-primary btn-hero">What's your baseline?<span>Take the free 2-minute test →</span></a>
         </div>
@@ -576,13 +576,13 @@
                 <h3>Start here.</h3>
                 <p>Everything I put out, for free.</p>
                 <ul class="tier-features">
-                    <li>431+ videos on TikTok, YouTube, IG</li>
+                    <li>Videos on TikTok, YouTube, IG</li>
                     <li>Podcast on Spotify + YouTube</li>
                     <li>Essays on Substack</li>
                     <li>Free PDF guide</li>
                 </ul>
                 <div class="tier-bottom">
-                    <a href="#" class="btn btn-secondary" onclick="document.getElementById('guidePopup').classList.add('active');return false;">Get the free guide</a>
+                    <a href="/assessment" class="btn btn-secondary">Take the test, get the guide</a>
                 </div>
             </div>
 
@@ -611,9 +611,9 @@
             <!-- COACHING -->
             <div class="tier tier-top">
                 <div class="tier-crown">★ Most impactful</div>
-                <div class="tier-label">1:1 Coaching</div>
-                <h3>Work with me directly.</h3>
-                <p>6 weeks of personalised coaching, with a money-back guarantee.</p>
+                <div class="tier-label">The Baseline Reset</div>
+                <h3>1:1 mentorship, direct with me.</h3>
+                <p>6 weeks of personalised 1:1 mentorship, with a money-back guarantee.</p>
                 <ul class="tier-features">
                     <li>Hit your goals or your money back</li>
                     <li>Screening call to check we're a fit</li>
@@ -622,6 +622,7 @@
                     <li>Week 6: full review — 60 min call</li>
                     <li>1:1 messaging with me</li>
                     <li>Everything in Community</li>
+                    <li>Only 4 clients at a time — cheapest it'll ever be</li>
                 </ul>
                 <div class="tier-bottom">
                     <a href="/coaching" class="btn btn-primary">Apply</a>
@@ -648,13 +649,10 @@
 <div class="popup-overlay" id="guidePopup">
     <div class="popup">
         <button class="popup-close" id="popupClose">&times;</button>
-        <h2>Get the free guide.</h2>
-        <p>Everything I've learned about emotional work, neuroscience, and what actually helps young people feel alive again. 8,000 words. Yours for free.</p>
-        <form class="popup-form" id="guideForm">
-            <input type="email" name="email" placeholder="Your email" required>
-            <button type="submit">Send it to me</button>
-        </form>
-        <p class="popup-note">Straight to your inbox. No spam.</p>
+        <h2>What's your baseline?</h2>
+        <p>Take the free 2-minute assessment to find out how far you are from feeling alive again, and get my full 8,000-word guide free the moment you finish.</p>
+        <a href="/assessment" class="btn btn-primary" style="display:block;width:100%;text-align:center;box-sizing:border-box;">Take the free test →</a>
+        <p class="popup-note">2 minutes · instant result · free guide included</p>
     </div>
 </div>
 
@@ -695,11 +693,10 @@
         this.innerHTML = '<p style="color:var(--accent);font-size:0.9rem;font-weight:600;padding:13px 0;text-align:center;">You\'re in ✓</p>';
     });
 
-    // Guide popup — shows once per session after 20s or 50% scroll
+    // Assessment popup — shows once per session after 5s or 50% scroll
     (function() {
         var overlay = document.getElementById('guidePopup');
         var closeBtn = document.getElementById('popupClose');
-        var form = document.getElementById('guideForm');
         var shown = false;
 
         function show() {
@@ -724,14 +721,6 @@
 
         closeBtn.addEventListener('click', close);
         overlay.addEventListener('click', function(e) { if (e.target === overlay) close(); });
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            var email = form.querySelector('input').value;
-            subscribeBeehiiv(email);
-            form.innerHTML = '<p style="color:var(--accent);font-size:0.95rem;font-weight:600;">Check your inbox for the guide ✓</p>';
-            setTimeout(close, 3000);
-        });
     })();
 </script>
 
