@@ -631,6 +631,20 @@
             e.preventDefault();
             var btn = form.querySelector('.submit-btn');
             if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+
+            // Also add the applicant's email to Beehiiv (all emails go to the list).
+            var emailField = form.querySelector('[name="email"]');
+            if (emailField && emailField.value) {
+                try {
+                    fetch('/api/subscribe', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email: emailField.value.trim() })
+                    });
+                } catch (err) {}
+            }
+
+            // Send the full application to Formspree (emails Cameron to reply).
             fetch(form.action, {
                 method: 'POST',
                 headers: { 'Accept': 'application/json' },
