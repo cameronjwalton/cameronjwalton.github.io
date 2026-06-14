@@ -323,9 +323,6 @@ const PILLAR_ADVICE = [
       action: "Reach out to one person this week and say something honest, how you actually are, not the autopilot \"I'm good\". Connection starts the moment you stop performing." },
 ];
 
-// ---- CONFIG: where leads go ----
-// TODO: replace with a dedicated Formspree endpoint for assessment leads if desired.
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/mwvzejpa";
 
 let current = 0;            // 0..9 question index
 const answers = new Array(QUESTIONS.length).fill(null);
@@ -422,29 +419,19 @@ document.getElementById('captureForm').addEventListener('submit', function(e) {
     const band = bandFor(score);
     const pScores = pillarScores();
 
-    // 1) send lead to Formspree (full detail)
-    const detail = {
-        name: name,
-        email: email,
-        _subject: "New Baseline Assessment lead: " + name + " — " + score + "/30 (" + band.name + ")",
-        baseline_score: score + "/30",
-        category: band.name,
-        breakdown: PILLARS.map((p, i) => p + ": " + pScores[i] + "/6").join(" | "),
-        answers: QUESTIONS.map((item, i) => (i+1) + ". " + item.q + " → " + item.opts[answers[i].idx][0]).join("\n")
-    };
-    try {
-        fetch(FORMSPREE_ENDPOINT, {
-            method: "POST",
-            headers: { "Accept": "application/json", "Content-Type": "application/json" },
-            body: JSON.stringify(detail)
-        });
-    } catch (err) {}
-
-    // 2) subscribe to newsletter (Beehiiv)
+    // Email capture → Beehiiv (with name + assessment result as custom fields,
+    // in case the subscribe endpoint forwards them).
     try {
         fetch('/api/subscribe', {
-            method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: email })
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                email: email,
+                name: name,
+                baseline_score: score + "/30",
+                category: band.name,
+                breakdown: PILLARS.map((p, i) => p + ": " + pScores[i] + "/6").join(" | ")
+            })
         });
     } catch (err) {}
 
