@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <title>What's Your Baseline? — Restoring Baseline</title>
+    <meta name="description" content="A free 2-minute assessment. Find out how far you are from your baseline across screens, emotions, purpose, body, and connection — and what to do about it.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #fafafa;
+            --bg-alt: #f0f0f0;
+            --bg-card: #ffffff;
+            --text: #1a1a1a;
+            --text-secondary: #555555;
+            --text-muted: #999999;
+            --accent: #FFD700;
+            --border: #e0e0e0;
+            --max-w: 720px;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.75;
+            overflow-x: hidden;
+        }
+        .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+        a { color: inherit; }
+
+        /* ---- BANNER ---- */
+        .banner {
+            display: block; text-align: center; padding: 10px 24px;
+            background: #1DB954; color: #000; font-size: 0.8rem; font-weight: 600;
+            text-decoration: none;
+        }
+        .banner a.banner-link { color: #000; text-decoration: underline; font-weight: 700; }
+
+        /* ---- NAV ---- */
+        .nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 900px; margin: 0 auto; padding: 0 24px; height: 48px; display: flex; align-items: center; justify-content: space-between; }
+        .nav-brand { font-size: 0.75rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--text); text-decoration: none; display: flex; align-items: center; }
+        .nav-links { display: flex; gap: 24px; }
+        .nav-links a { font-size: 0.8rem; color: var(--text); text-decoration: none; transition: color 0.3s; }
+        .nav-links a:hover { color: #000; }
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; color: var(--text); }
+        @media (max-width: 600px) {
+            .nav-toggle { display: block; }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); flex-direction: column; padding: 16px 20px; gap: 16px; }
+            .nav-links.open { display: flex; }
+            .nav-links a { font-size: 0.9rem; }
+        }
+
+        /* ---- BUTTONS ---- */
+        .btn {
+            display: inline-block; padding: 15px 32px; border-radius: 8px; font-size: 0.95rem;
+            font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: all 0.2s; text-align: center;
+        }
+        .btn-primary { background: var(--text); color: #fff; }
+        .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+        .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+        .btn-secondary:hover { background: var(--bg-alt); }
+
+        /* ---- QUIZ SHELL ---- */
+        .quiz { max-width: 640px; margin: 0 auto; padding: 56px 24px 80px; }
+
+        /* progress */
+        .progress-wrap { margin-bottom: 40px; }
+        .progress-bar { height: 6px; background: var(--bg-alt); border-radius: 99px; overflow: hidden; }
+        .progress-fill { height: 100%; width: 0%; background: var(--accent); transition: width 0.4s ease; }
+        .progress-label { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 10px; }
+
+        /* intro */
+        .intro h1 { font-size: 2.2rem; line-height: 1.2; margin-bottom: 18px; letter-spacing: -0.5px; }
+        .intro p { color: var(--text-secondary); margin-bottom: 14px; }
+        .intro .meta { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 28px; }
+        .pillars { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 32px; }
+        .pillars span { font-size: 0.78rem; background: var(--bg-card); border: 1px solid var(--border); padding: 6px 12px; border-radius: 99px; color: var(--text-secondary); }
+
+        /* question */
+        .step { display: none; }
+        .step.active { display: block; animation: fade 0.4s ease; }
+        @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .q-pillar { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 12px; }
+        .q-text { font-size: 1.5rem; line-height: 1.35; margin-bottom: 28px; letter-spacing: -0.3px; }
+        .options { display: flex; flex-direction: column; gap: 12px; }
+        .option {
+            text-align: left; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+            padding: 16px 18px; font-size: 1rem; cursor: pointer; transition: all 0.15s; color: var(--text); line-height: 1.4;
+        }
+        .option:hover { border-color: var(--text); transform: translateY(-1px); }
+        .option.selected { border-color: var(--text); background: #fff; box-shadow: 0 0 0 2px var(--text) inset; }
+        .step-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 28px; }
+        .back-link { background: none; border: none; color: var(--text-muted); font-size: 0.85rem; cursor: pointer; padding: 8px 0; }
+        .back-link:hover { color: var(--text); }
+
+        /* capture */
+        .capture h2 { font-size: 1.8rem; margin-bottom: 12px; letter-spacing: -0.3px; }
+        .capture p { color: var(--text-secondary); margin-bottom: 24px; }
+        .field { margin-bottom: 16px; }
+        .field label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; }
+        .field input {
+            width: 100%; padding: 14px 16px; border: 1px solid var(--border); border-radius: 8px;
+            font-size: 1rem; font-family: inherit; background: var(--bg-card);
+        }
+        .field input:focus { outline: none; border-color: var(--text); }
+        .fine { font-size: 0.78rem; color: var(--text-muted); margin-top: 14px; text-align: center; }
+
+        /* result */
+        .result { display: none; text-align: center; }
+        .result.active { display: block; animation: fade 0.5s ease; }
+        .score-ring { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 8px; }
+        .score-num { font-size: 4rem; font-weight: 700; line-height: 1; letter-spacing: -2px; }
+        .score-num small { font-size: 1.4rem; color: var(--text-muted); font-weight: 400; }
+        .category { font-size: 2rem; margin: 14px 0 4px; letter-spacing: -0.5px; }
+        .cat-accent { height: 4px; width: 60px; background: var(--accent); margin: 0 auto 24px; border-radius: 99px; }
+        .result-body { text-align: left; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin-bottom: 28px; }
+        .result-body h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin: 18px 0 6px; }
+        .result-body h3:first-child { margin-top: 0; }
+        .result-body p { color: var(--text-secondary); }
+        .pillar-bars { margin: 28px 0; text-align: left; }
+        .pillar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; font-size: 0.85rem; }
+        .pillar-row .name { width: 120px; flex-shrink: 0; color: var(--text-secondary); }
+        .pillar-row .track { flex: 1; height: 8px; background: var(--bg-alt); border-radius: 99px; overflow: hidden; }
+        .pillar-row .bar { height: 100%; background: var(--accent); border-radius: 99px; }
+        .result-ctas { display: flex; flex-direction: column; gap: 12px; max-width: 360px; margin: 0 auto; }
+
+        footer { border-top: 1px solid var(--border); padding: 40px 24px; text-align: center; }
+        footer p { font-size: 0.8rem; color: var(--text-muted); }
+        footer a { color: var(--text-secondary); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<!-- ==================== BANNER ==================== -->
+<div class="banner">Restoring Baseline podcast is out now! Listen on <a href="https://www.youtube.com/@whamron_yt" class="banner-link">YouTube</a> or <a href="https://open.spotify.com/show/16E16W0ke5vGOVHZRQfRS4" class="banner-link">Spotify</a></div>
+
+<!-- ==================== NAV ==================== -->
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="/" class="nav-brand"><img src="/img/logo.png?v=4" alt="Restoring Baseline" style="height:50px;vertical-align:middle;margin-right:8px;">Restoring Baseline</a>
+        <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div class="nav-links">
+            <a href="/assessment">Assessment</a>
+            <a href="/story">My Story</a>
+            <a href="https://www.skool.com/restoring-baseline-4494">Community</a>
+            <a href="/coaching">Coaching</a>
+            <a href="https://open.spotify.com/show/16E16W0ke5vGOVHZRQfRS4">Podcast</a>
+        </div>
+    </div>
+</nav>
+
+<div class="quiz">
+
+    <!-- PROGRESS -->
+    <div class="progress-wrap" id="progressWrap" style="display:none;">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-label" id="progressLabel">Question 1 of 10</div>
+    </div>
+
+    <!-- INTRO -->
+    <div class="step active intro" id="intro">
+        <div class="meta">Free · 2 minutes · No right answers</div>
+        <h1>What's your baseline?</h1>
+        <p>Most people who feel off can't name what's wrong. They just know something's missing. This is a quick, honest read on how far you are from <em>your</em> baseline, the version of you that feels alive again.</p>
+        <p>Ten questions across the five things that quietly run your life:</p>
+        <div class="pillars">
+            <span>Screens &amp; dopamine</span>
+            <span>Emotional avoidance</span>
+            <span>Purpose &amp; direction</span>
+            <span>Physical vitality</span>
+            <span>Connection</span>
+        </div>
+        <button class="btn btn-primary" onclick="start()" style="width:100%;">Start the assessment →</button>
+    </div>
+
+    <!-- QUESTIONS render here -->
+    <div id="questions"></div>
+
+    <!-- CAPTURE -->
+    <div class="step capture" id="capture">
+        <div class="q-pillar">Last step</div>
+        <h2>Where should I send your result?</h2>
+        <p>Your Baseline Score and a breakdown of where you stand are ready. Tell me where to send it, and I'll include the one thing I'd focus on first if I were you.</p>
+        <form id="captureForm">
+            <div class="field">
+                <label for="name">First name</label>
+                <input type="text" id="name" name="name" required autocomplete="given-name">
+            </div>
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required autocomplete="email">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;">Show my Baseline Score →</button>
+            <div class="fine">No spam. Just your result, and the occasional thing worth your time.</div>
+        </form>
+    </div>
+
+    <!-- RESULT -->
+    <div class="result" id="result">
+        <div class="score-ring">Your Baseline Score</div>
+        <div class="score-num"><span id="scoreNum">0</span><small>/30</small></div>
+        <h2 class="category" id="categoryName">—</h2>
+        <div class="cat-accent"></div>
+
+        <div class="pillar-bars" id="pillarBars"></div>
+
+        <div class="result-body" id="resultBody"></div>
+
+        <div class="result-ctas" id="resultCtas"></div>
+    </div>
+
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+    <p>&copy; 2026 Restoring Baseline · <a href="/">Home</a> · <a href="/coaching">Coaching</a></p>
+</footer>
+
+<script>
+// ---- QUESTION DATA ----
+// Each option scored 0-3 (3 = closest to baseline)
+const PILLARS = ["Screens & dopamine","Emotional avoidance","Purpose & direction","Physical vitality","Connection"];
+const QUESTIONS = [
+    { pillar: 0, q: "What's the first thing you do when you wake up?",
+      opts: [["Reach for my phone before I'm even out of bed",0],["Check it within a few minutes",1],["Give it a bit, then check",2],["I don't reach for my phone first thing",3]] },
+    { pillar: 0, q: "When you're bored or uncomfortable, how often do you reach for a screen, vape, snack, or scroll?",
+      opts: [["Constantly, it's automatic",0],["Most of the time",1],["Sometimes, I catch myself",2],["Rarely, I can sit with it",3]] },
+    { pillar: 1, q: "When something's bothering you, what do you usually do?",
+      opts: [["Distract myself until it goes away",0],["Push it down and carry on",1],["Notice it, but don't really deal with it",2],["Actually feel it and work through it",3]] },
+    { pillar: 1, q: "How often do you feel genuinely present, not numb or checked out?",
+      opts: [["Almost never",0],["Rarely",1],["Some days",2],["Most days",3]] },
+    { pillar: 2, q: "Do you feel like you're moving toward something that matters to you?",
+      opts: [["No idea what I'm even doing",0],["Drifting, going through the motions",1],["Vaguely, but not really committed",2],["Yes, I know what I'm building",3]] },
+    { pillar: 2, q: "You know what you should be doing. How often do you actually do it?",
+      opts: [["Almost never, I freeze",0],["Occasionally, in bursts",1],["More often than not",2],["Consistently",3]] },
+    { pillar: 3, q: "How are your sleep and energy?",
+      opts: [["Wrecked, tired all the time",0],["Inconsistent, often drained",1],["Okay most days",2],["Strong and steady",3]] },
+    { pillar: 3, q: "How often do you move your body or train?",
+      opts: [["Basically never",0],["Now and then",1],["A few times a week",2],["It's part of who I am",3]] },
+    { pillar: 4, q: "How connected do you feel to the people around you?",
+      opts: [["Isolated, even when I'm around others",0],["Surface-level, lonely a lot",1],["A few real connections",2],["Deeply connected",3]] },
+    { pillar: 4, q: "When you're struggling, is there someone you can actually open up to?",
+      opts: [["No one",0],["Not really",1],["One or two people",2],["Yes, and I do",3]] },
+];
+
+// ---- RESULT BANDS ----
+const BANDS = [
+    { min: 0, max: 9, name: "Running on Empty",
+      symptoms: "You're not lazy and you're not broken. You're depleted. The phone, the scrolling, the avoidance, they're not the problem, they're painkillers for something underneath. Right now most days probably feel like getting through, not living.",
+      why: "When you've been numb long enough, your brain recalibrates. Cheap dopamine replaces real reward, avoidance replaces feeling, and isolation feels safer than connection. It compounds quietly until \"normal\" sits far below your actual baseline.",
+      next: "This is exactly the place I built coaching for, because content alone won't move you from here. You don't need more information. You need someone who's been here, and a plan with a guarantee attached." },
+    { min: 10, max: 17, name: "Drifting",
+      symptoms: "You're functioning. You get through the day, you look fine from the outside, but there's a flatness to it. You know you're capable of more and that gap is starting to nag at you.",
+      why: "Surviving is sticky. It's comfortable enough that you never quite break out, but hollow enough that you never feel alive. Most people stay here for years because nothing forces the change.",
+      next: "The fastest way out of drifting is a clear goal and someone holding you to it. That's what coaching is, and if we don't hit the goals we set, you get your money back." },
+    { min: 18, max: 24, name: "Stirring",
+      symptoms: "Something's already shifting. You've got real momentum in some areas and you can feel the difference. But there are still corners you avoid, and old patterns that pull you back when life gets heavy.",
+      why: "This is the most important stage and the easiest to stall in. You've proven you can change, which is huge. The risk now is plateauing, settling for \"better than before\" instead of going all the way to baseline.",
+      next: "You're close enough that focused support pays off fast. The community will keep your momentum, and coaching will close the gap on whatever you keep avoiding." },
+    { min: 25, max: 30, name: "Near Baseline",
+      symptoms: "You're largely dialled in. You move your body, you face your emotions, you've got direction and people around you. You're not here because you're falling apart, you're here because you optimise.",
+      why: "Even near baseline, blind spots cost you. The highest performers keep a coach not to fix what's broken, but to find the 10% they can't see and to stay accountable to their own standards.",
+      next: "Join the community to go deeper with people on the same path, or if there's a specific area you want to lock in, coaching will get you there with a guarantee." },
+];
+
+// ---- CONFIG: where leads go ----
+// TODO: replace with a dedicated Formspree endpoint for assessment leads if desired.
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mwvzejpa";
+
+let current = 0;            // 0..9 question index
+const answers = new Array(QUESTIONS.length).fill(null);
+
+const introEl = document.getElementById('intro');
+const questionsEl = document.getElementById('questions');
+const captureEl = document.getElementById('capture');
+const resultEl = document.getElementById('result');
+const progressWrap = document.getElementById('progressWrap');
+const progressFill = document.getElementById('progressFill');
+const progressLabel = document.getElementById('progressLabel');
+
+// build question steps
+QUESTIONS.forEach((item, i) => {
+    const step = document.createElement('div');
+    step.className = 'step';
+    step.id = 'q' + i;
+    step.innerHTML =
+        '<div class="q-pillar">' + PILLARS[item.pillar] + '</div>' +
+        '<div class="q-text">' + item.q + '</div>' +
+        '<div class="options">' +
+        item.opts.map((o, idx) =>
+            '<button class="option" data-q="' + i + '" data-score="' + o[1] + '" data-idx="' + idx + '">' + o[0] + '</button>'
+        ).join('') +
+        '</div>' +
+        '<div class="step-nav"><button class="back-link" data-back="' + i + '">← Back</button><span></span></div>';
+    questionsEl.appendChild(step);
+});
+
+function start() {
+    introEl.classList.remove('active');
+    progressWrap.style.display = 'block';
+    current = 0;
+    showQuestion(0);
+}
+
+function showQuestion(i) {
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    const step = document.getElementById('q' + i);
+    step.classList.add('active');
+    // restore selection
+    step.querySelectorAll('.option').forEach(b => {
+        b.classList.toggle('selected', answers[i] !== null && Number(b.dataset.idx) === answers[i].idx);
+    });
+    progressFill.style.width = ((i) / QUESTIONS.length * 100) + '%';
+    progressLabel.textContent = 'Question ' + (i + 1) + ' of ' + QUESTIONS.length;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// option click
+questionsEl.addEventListener('click', e => {
+    if (e.target.classList.contains('option')) {
+        const qi = Number(e.target.dataset.q);
+        answers[qi] = { score: Number(e.target.dataset.score), idx: Number(e.target.dataset.idx) };
+        const step = document.getElementById('q' + qi);
+        step.querySelectorAll('.option').forEach(b => b.classList.remove('selected'));
+        e.target.classList.add('selected');
+        setTimeout(() => {
+            if (qi < QUESTIONS.length - 1) { current = qi + 1; showQuestion(current); }
+            else goCapture();
+        }, 250);
+    }
+    if (e.target.dataset.back !== undefined) {
+        const bi = Number(e.target.dataset.back);
+        if (bi === 0) { progressWrap.style.display = 'none'; document.querySelectorAll('.step').forEach(s => s.classList.remove('active')); introEl.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+        else { current = bi - 1; showQuestion(current); }
+    }
+});
+
+function goCapture() {
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    captureEl.classList.add('active');
+    progressFill.style.width = '100%';
+    progressLabel.textContent = 'Almost there';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function computeScore() {
+    return answers.reduce((sum, a) => sum + (a ? a.score : 0), 0);
+}
+function pillarScores() {
+    // each pillar has 2 questions, max 6
+    const p = [0,0,0,0,0];
+    QUESTIONS.forEach((item, i) => { p[item.pillar] += answers[i] ? answers[i].score : 0; });
+    return p;
+}
+function bandFor(score) { return BANDS.find(b => score >= b.min && score <= b.max); }
+
+document.getElementById('captureForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const score = computeScore();
+    const band = bandFor(score);
+    const pScores = pillarScores();
+
+    // 1) send lead to Formspree (full detail)
+    const detail = {
+        name: name,
+        email: email,
+        _subject: "New Baseline Assessment lead: " + name + " — " + score + "/30 (" + band.name + ")",
+        baseline_score: score + "/30",
+        category: band.name,
+        breakdown: PILLARS.map((p, i) => p + ": " + pScores[i] + "/6").join(" | "),
+        answers: QUESTIONS.map((item, i) => (i+1) + ". " + item.q + " → " + item.opts[answers[i].idx][0]).join("\n")
+    };
+    try {
+        fetch(FORMSPREE_ENDPOINT, {
+            method: "POST",
+            headers: { "Accept": "application/json", "Content-Type": "application/json" },
+            body: JSON.stringify(detail)
+        });
+    } catch (err) {}
+
+    // 2) subscribe to newsletter (Beehiiv)
+    try {
+        fetch('/api/subscribe', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email })
+        });
+    } catch (err) {}
+
+    renderResult(name, score, band, pScores);
+});
+
+function renderResult(name, score, band, pScores) {
+    captureEl.classList.remove('active');
+    progressWrap.style.display = 'none';
+    resultEl.classList.add('active');
+
+    document.getElementById('scoreNum').textContent = score;
+    document.getElementById('categoryName').textContent = band.name;
+
+    // pillar bars
+    document.getElementById('pillarBars').innerHTML = PILLARS.map((p, i) =>
+        '<div class="pillar-row"><div class="name">' + p + '</div><div class="track"><div class="bar" style="width:' + (pScores[i]/6*100) + '%"></div></div></div>'
+    ).join('');
+
+    document.getElementById('resultBody').innerHTML =
+        '<h3>What this means</h3><p>' + band.symptoms + '</p>' +
+        '<h3>Why it happens</h3><p>' + band.why + '</p>' +
+        '<h3>What I\'d do next</h3><p>' + band.next + '</p>';
+
+    // CTAs — coaching primary for lower bands, community primary for higher
+    const coaching = '<a href="/coaching" class="btn btn-primary">Apply for 1:1 coaching →</a>';
+    const community = '<a href="https://www.skool.com/restoring-baseline-4494" class="btn btn-secondary">Join the free community</a>';
+    const ctas = score >= 25 ? [community, coaching] : [coaching, community];
+    document.getElementById('resultCtas').innerHTML = ctas.join('');
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
