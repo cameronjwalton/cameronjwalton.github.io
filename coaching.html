@@ -7,6 +7,16 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <title>The Baseline Reset · 1:1 Mentorship · Restoring Baseline</title>
     <meta name="description" content="The Baseline Reset: 6 weeks of 1:1 mentorship with a money-back guarantee. We set your goals in the first session — hit them or your money back. Apply now.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Restoring Baseline">
+    <meta property="og:title" content="The Baseline Reset — 1:1 mentorship, money-back guarantee">
+    <meta property="og:description" content="6 weeks of 1:1 mentorship. We set your goals in the first session, hit them or your money back. £500, paid weekly, cancel anytime.">
+    <meta property="og:url" content="https://whamron.com/coaching">
+    <meta property="og:image" content="https://whamron.com/hero-poster.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Baseline Reset — 1:1 mentorship, money-back guarantee">
+    <meta name="twitter:description" content="Hit your goals or your money back. £500, paid weekly, cancel anytime.">
+    <meta name="twitter:image" content="https://whamron.com/hero-poster.jpg">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -420,6 +430,9 @@
         }
         .step-row .step-text h3 { font-size: 1.05rem; margin-bottom: 2px; }
         .step-row .step-text p { font-size: 0.92rem; color: var(--text-secondary); margin: 0; }
+        .site-social { display:flex; gap:16px; justify-content:center; margin:0 0 16px; }
+        .site-social a { color: var(--text-muted); display:inline-flex; transition: color .2s; }
+        .site-social a:hover { color: var(--text); }
     </style>
 </head>
 <body>
@@ -450,7 +463,7 @@
     <div class="pitch">
         <h1>The Baseline Reset</h1>
         <p class="pitch-eyebrow">1:1 mentorship · 6 weeks · money-back guarantee</p>
-        <p>Most people who come to me already know what they should be doing. They've watched the videos, they've tried the routines, and none of it stuck because the problem was never information. It's emotional. I blend neuroscience with ancient wisdom to help you understand what's actually going on underneath, and once you see it, everything changes.</p>
+        <p>Most people who come to me already know what they should be doing. They've watched the videos, they've tried the routines, and none of it stuck because the problem was never information. It's emotional. I blend neuroscience with ancient wisdom and philosophy to help you understand what's actually going on underneath, and once you see it, everything changes.</p>
         <p>My job is to listen, work out how you really feel, and offer reframes and concrete, maintainable habits that make life more enjoyable, not another rigid routine you'll abandon in a week.</p>
     </div>
 
@@ -469,8 +482,8 @@
                 <li>Unlimited voice-note and message support between every session</li>
                 <li>Full community access — all 10 modules and weekly live calls</li>
             </ul>
-            <div class="offer-price">£500<span>for the 6 weeks, fully refundable if we don't hit your goals</span></div>
-            <p class="offer-scarcity">I only take <strong>4 one-to-one clients at a time</strong> so everyone gets my full attention. With thousands of new followers every month and demand climbing fast, £500 is the cheapest this will ever be.</p>
+            <div class="offer-price">£500<span>over 6 weeks · paid weekly (£83/week) · cancel anytime</span></div>
+            <p class="offer-scarcity">No big upfront cost, no lock-in, and a full refund if you do the work and we don't hit your goals. I only take <strong>4 one-to-one clients at a time</strong> so everyone gets my full attention, and with thousands of new followers every month, £500 is the cheapest this will ever be.</p>
         </div>
     </div>
 
@@ -527,9 +540,8 @@
         <h2>Apply</h2>
         <p style="color:var(--text-secondary);margin-bottom:24px;font-size:0.95rem;">This is the first step. I'll read every application personally and reply by email to set up a short screening call. No payment yet, no pressure.</p>
 
-        <form action="https://formspree.io/f/mwvzejpa" method="POST">
+        <form id="applyForm" action="https://formspree.io/f/mwvzejpa" method="POST">
             <input type="hidden" name="_subject" value="Coaching application">
-            <input type="hidden" name="_next" value="https://calendly.com/cameronjwalton/30min">
 
             <label>Name and age</label>
             <input type="text" name="name_and_age" required>
@@ -550,7 +562,7 @@
             <label>Email</label>
             <input type="email" name="email" required>
 
-            <label>Ready to commit to £500 and 6 weeks?</label>
+            <label>Ready to start? (£500 over 6 weeks, paid weekly, cancel anytime)</label>
             <select name="commitment" required>
                 <option value="" disabled selected>Select</option>
                 <option value="Yes">Yes</option>
@@ -572,13 +584,18 @@
         </div>
 
         <div class="faq-item">
+            <p class="faq-q">How does payment work?</p>
+            <p class="faq-a">£500 total for the six weeks, paid weekly (£83/week) rather than all upfront, so there's no big lump sum. You can cancel anytime with no lock-in. And if you complete everything we agree and we still don't hit your goals, you get a full refund.</p>
+        </div>
+
+        <div class="faq-item">
             <p class="faq-q">What if I can't afford £500?</p>
             <p class="faq-a">I charge for coaching because I can't help everyone individually, but I do my best. Everything I think and teach is available for free across all my content, and you can join the community for direct messaging with me at no cost. I'm right at the very start of all this, so this is the cheapest it will ever be.</p>
         </div>
 
         <div class="faq-item">
             <p class="faq-q">What makes this different from therapy?</p>
-            <p class="faq-a">I'm not a therapist. Think of it more like a training partner for your life. Weekly calls, stuff to work on between them, and someone checking in mid-week who actually gets what you're going through because he's been there.</p>
+            <p class="faq-a">I'm not a therapist, this is mentorship. Think of it more like a training partner for your life: weekly calls, stuff to work on between them, and someone checking in mid-week who actually gets what you're going through because he's been there.</p>
         </div>
 
         <div class="faq-item">
@@ -592,10 +609,50 @@
         </div>
     </div>
 
-    <!-- BACK -->
+    <!-- SOCIALS + BACK -->
+    <div class="site-social">
+            <a href="https://www.tiktok.com/@whamron" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78c.27 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.3 6.34 6.34 0 0 0 9.49 21.6a6.34 6.34 0 0 0 6.34-6.34V8.7a8.16 8.16 0 0 0 3.76.92V6.69Z"/></svg></a>
+            <a href="https://www.youtube.com/@whamron_yt" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 0 0 .5 6.19 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.81ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg></a>
+            <a href="https://www.instagram.com/whamron" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.97.25 2.43.41.61.24 1.05.52 1.51.98.46.46.74.9.98 1.51.17.46.36 1.26.41 2.43.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.97-.41 2.43a4.07 4.07 0 0 1-.98 1.51c-.46.46-.9.74-1.51.98-.46.17-1.26.36-2.43.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.25-2.43-.41a4.07 4.07 0 0 1-1.51-.98 4.07 4.07 0 0 1-.98-1.51c-.17-.46-.36-1.26-.41-2.43C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.97.41-2.43.24-.61.52-1.05.98-1.51a4.07 4.07 0 0 1 1.51-.98c.46-.17 1.26-.36 2.43-.41C8.42 2.17 8.8 2.16 12 2.16ZM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.96 5.96 0 0 0-2.16 1.41A5.96 5.96 0 0 0 .57 4.2C.27 4.96.07 5.84.01 7.11.01 8.39 0 8.8 0 12.06s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.41 2.16a5.96 5.96 0 0 0 2.16 1.41c.76.3 1.64.5 2.91.56C8.39 24 8.8 24 12.06 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.96 5.96 0 0 0 2.16-1.41 5.96 5.96 0 0 0 1.41-2.16c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.96 5.96 0 0 0-1.41-2.16A5.96 5.96 0 0 0 19.91.63C19.15.33 18.27.13 17 .07 15.72.01 15.31 0 12.06 0H12Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88Z"/></svg></a>
+            <a href="https://open.spotify.com/show/16E16W0ke5vGOVHZRQfRS4" aria-label="Spotify"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.52 17.34c-.24.36-.66.48-1.02.24-2.82-1.74-6.36-2.1-10.56-1.14-.42.12-.78-.18-.9-.54-.12-.42.18-.78.54-.9 4.56-1.02 8.52-.6 11.7 1.32.42.18.48.66.24 1.02zm1.44-3.3c-.3.42-.84.6-1.26.3-3.24-1.98-8.16-2.58-11.94-1.38-.48.12-.99-.12-1.14-.6-.12-.48.12-.99.6-1.14 4.38-1.32 9.78-.66 13.5 1.62.36.24.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-.96.6-1.56.3z"/></svg></a>
+            <a href="https://substack.com/@whamron" aria-label="Substack"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg></a>
+        </div>
     <a href="/" class="back-link">← Back to home</a>
 
 </div>
+
+<script>
+    // Submit the application to Formspree via AJAX so it emails Cameron and shows
+    // an on-site confirmation instead of redirecting away.
+    (function() {
+        var form = document.getElementById('applyForm');
+        if (!form) return;
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var btn = form.querySelector('.submit-btn');
+            if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+            fetch(form.action, {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: new FormData(form)
+            }).then(function(r) {
+                if (r.ok) {
+                    form.innerHTML = '<div style="text-align:center;padding:24px 8px;">' +
+                        '<h3 style="margin-bottom:10px;">Got it — thank you.</h3>' +
+                        '<p style="color:var(--text-secondary);">I read every application personally. ' +
+                        'I\'ll reply by email to set up your screening call, usually within a couple of days. ' +
+                        'Keep an eye on your inbox (and spam, just in case).</p></div>';
+                } else {
+                    if (btn) { btn.disabled = false; btn.textContent = 'Submit'; }
+                    alert('Something went wrong sending that. Please email me directly instead.');
+                }
+            }).catch(function() {
+                if (btn) { btn.disabled = false; btn.textContent = 'Submit'; }
+                alert('Something went wrong sending that. Please email me directly instead.');
+            });
+        });
+    })();
+</script>
 
 </body>
 </html>
