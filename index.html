@@ -6,16 +6,16 @@
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <title>Restoring Baseline — feel alive again</title>
-    <meta name="description" content="Stuck in the scroll, numb, avoid loop? Take the free 2-minute Baseline assessment to find out how far you are from feeling alive again, and exactly what to do about it.">
+    <meta name="description" content="Stuck in the scroll, numb, avoid loop? I help young men break the cycle of avoidance and screen-numbness so you feel alive again instead of just getting through the day.">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Restoring Baseline">
     <meta property="og:title" content="Restoring Baseline — feel alive again">
-    <meta property="og:description" content="Stuck in the scroll, numb, avoid loop? Take the free 2-minute Baseline assessment to find out how far you are from feeling alive again.">
+    <meta property="og:description" content="Stuck in the scroll, numb, avoid loop? I help young men break the cycle of avoidance and screen-numbness so you feel alive again.">
     <meta property="og:url" content="https://whamron.com/">
     <meta property="og:image" content="https://whamron.com/hero-poster.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Restoring Baseline — feel alive again">
-    <meta name="twitter:description" content="Take the free 2-minute Baseline assessment, find out how far you are from feeling alive again.">
+    <meta name="twitter:description" content="I help young men break the cycle of avoidance and screen-numbness so you feel alive again.">
     <meta name="twitter:image" content="https://whamron.com/hero-poster.jpg">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -509,7 +509,6 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
         <div class="nav-links">
-            <a href="/assessment">Assessment</a>
             <a href="/story">My Story</a>
             <a href="https://www.skool.com/restoring-baseline-4494">Community</a>
             <a href="/coaching">Coaching</a>
@@ -535,7 +534,8 @@
         <h1>You know exactly what to do and you still can't make yourself do it.</h1>
         <p class="subtitle">I help young men break the cycle of avoidance and screen-numbness, combining neuroscience with ancient wisdom and philosophy, so you feel alive again instead of just getting through the day.</p>
         <div class="hero-ctas">
-            <a href="/assessment" class="btn btn-primary btn-hero">What's your baseline?<span>Take the free 2-minute test →</span></a>
+            <a href="/coaching" class="btn btn-primary">Talk to me</a>
+            <a href="https://www.skool.com/restoring-baseline-4494" class="btn btn-secondary">Join the community — free</a>
         </div>
         <div class="socials">
             <a href="https://www.tiktok.com/@whamron" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78c.27 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.3 6.34 6.34 0 0 0 9.49 21.6a6.34 6.34 0 0 0 6.34-6.34V8.7a8.16 8.16 0 0 0 3.76.92V6.69Z"/></svg></a>
@@ -595,7 +595,7 @@
                     <li>Free PDF guide</li>
                 </ul>
                 <div class="tier-bottom">
-                    <a href="/assessment" class="btn btn-secondary">Take the test, get the guide</a>
+                    <a href="#" class="btn btn-secondary" onclick="document.getElementById('guidePopup').classList.add('active');return false;">Get the free guide</a>
                 </div>
             </div>
 
@@ -669,10 +669,13 @@
 <div class="popup-overlay" id="guidePopup">
     <div class="popup">
         <button class="popup-close" id="popupClose">&times;</button>
-        <h2>What's your baseline?</h2>
-        <p>Take the free 2-minute assessment to find out how far you are from feeling alive again, and get my full 8,000-word guide free the moment you finish.</p>
-        <a href="/assessment" class="btn btn-primary" style="display:block;width:100%;text-align:center;box-sizing:border-box;">Take the free test →</a>
-        <p class="popup-note">2 minutes · instant result · free guide included</p>
+        <h2>Get the free guide.</h2>
+        <p>Everything I've learned about emotional work, neuroscience, and what actually helps young people feel alive again. 8,000 words. Yours for free.</p>
+        <form class="popup-form" id="guideForm">
+            <input type="email" name="email" placeholder="Your email" required>
+            <button type="submit">Send it to me</button>
+        </form>
+        <p class="popup-note">Straight to your inbox. No spam.</p>
     </div>
 </div>
 
@@ -713,10 +716,11 @@
         this.innerHTML = '<p style="color:var(--accent);font-size:0.9rem;font-weight:600;padding:13px 0;text-align:center;">You\'re in ✓</p>';
     });
 
-    // Assessment popup — shows once per session after 5s or 50% scroll
+    // Guide popup — shows once per session after 5s or 50% scroll
     (function() {
         var overlay = document.getElementById('guidePopup');
         var closeBtn = document.getElementById('popupClose');
+        var form = document.getElementById('guideForm');
         var shown = false;
 
         function show() {
@@ -741,6 +745,14 @@
 
         closeBtn.addEventListener('click', close);
         overlay.addEventListener('click', function(e) { if (e.target === overlay) close(); });
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var email = form.querySelector('input').value;
+            subscribeBeehiiv(email);
+            form.innerHTML = '<p style="color:var(--accent);font-size:0.95rem;font-weight:600;">Check your inbox for the guide ✓</p>';
+            setTimeout(close, 3000);
+        });
     })();
 </script>
 
